@@ -1,0 +1,149 @@
+{
+  "settings": {
+    "title": "Подберём свет для вашего дома",
+    "subtitle": "Ответьте на несколько вопросов — и мы подготовим направление будущей подсветки.",
+    "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg",
+    "googleScriptUrl": "",
+    "successTitle": "Заявка отправлена",
+    "successText": "Спасибо. Мы получили ваши ответы и скоро свяжемся с вами."
+  },
+
+  "steps": [
+    {
+      "id": "style",
+      "number": "01",
+      "question": "Какой стиль вам ближе?",
+      "description": "Выберите вариант, который больше всего соответствует тому, каким вы представляете свой дом вечером.",
+      "type": "cards",
+      "options": [
+        {
+          "id": "fringe",
+          "title": "Бахрома",
+          "description": "Мягкий свет по контуру крыши",
+          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+        },
+        {
+          "id": "neon",
+          "title": "Неон",
+          "description": "Чёткие архитектурные линии",
+          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+        },
+        {
+          "id": "fringe-neon",
+          "title": "Бахрома + Неон",
+          "description": "Объёмный свет и выразительная архитектура",
+          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+        },
+        {
+          "id": "unknown",
+          "title": "Не знаю",
+          "description": "Помогите подобрать решение",
+          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+        }
+      ]
+    },
+
+    {
+      "id": "lighting",
+      "number": "02",
+      "question": "Какой цвет освещения?",
+      "description": "Температура света сильно влияет на атмосферу дома. Выберите то, что ближе именно вам.",
+      "type": "cards",
+      "options": [
+        {
+          "id": "cold-fringe-neon",
+          "title": "Холодный",
+          "description": "Бахрома + неон",
+          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+        },
+        {
+          "id": "warm-fringe-neon",
+          "title": "Тёплый",
+          "description": "Бахрома + неон",
+          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+        },
+        {
+          "id": "cold-fringe",
+          "title": "Холодный",
+          "description": "Только бахрома",
+          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+        },
+        {
+          "id": "warm-fringe",
+          "title": "Тёплый",
+          "description": "Только бахрома",
+          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+        },
+        {
+          "id": "cold-neon",
+          "title": "Холодный",
+          "description": "Только неон",
+          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+        },
+        {
+          "id": "warm-neon",
+          "title": "Тёплый",
+          "description": "Только неон",
+          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+        }
+      ]
+    },
+
+    {
+      "id": "decorations",
+      "number": "03",
+      "question": "Нужна ли подсветка деревьев, фигур?",
+      "description": "Дополнительный свет помогает связать дом, участок и архитектуру в единую композицию.",
+      "type": "cards",
+      "options": [
+        {
+          "id": "yes",
+          "title": "Да, нужна",
+          "description": "Дом + участок как единая композиция",
+          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+        },
+        {
+          "id": "no",
+          "title": "Нет, не нужна",
+          "description": "Сфокусируемся на доме",
+          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+        }
+      ]
+    },
+
+    {
+      "id": "contact-method",
+      "number": "04",
+      "question": "Где удобнее получить визуализацию?",
+      "description": "Мы подготовим предложение и свяжемся удобным для вас способом.",
+      "type": "contact-method",
+      "options": [
+        {
+          "id": "whatsapp",
+          "title": "WhatsApp",
+          "icon": "whatsapp"
+        },
+        {
+          "id": "telegram",
+          "title": "Telegram",
+          "icon": "telegram"
+        },
+        {
+          "id": "email",
+          "title": "Email",
+          "icon": "email"
+        }
+      ]
+    }
+  ],
+
+  "lead": {
+    "title": "Уже начинаем готовить визуализацию 🔥",
+    "subtitle": "Остался последний этап — оставьте контакты, чтобы мы могли отправить результат.",
+    "namePlaceholder": "Ваше имя",
+    "phonePlaceholder": "+7 (___) ___-__-__",
+    "personalConsent": "Я даю согласие на обработку моих персональных данных в соответствии с политикой конфиденциальности",
+    "marketingConsent": "Я согласен(а) на получение информационной и рекламной рассылки",
+    "button": "Получить визуализацию"
+  }
+}
