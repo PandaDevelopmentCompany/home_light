@@ -16,7 +16,7 @@
         rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -76,7 +76,7 @@
                 <span>+7 (000) 000-00-00</span>
             </a>
 
-            <a href="#calculate" class="header-button">
+            <a href="#quiz" class="header-button">
                 <span>Рассчитать стоимость</span>
                 <span class="button-arrow">↗</span>
             </a>
@@ -162,7 +162,7 @@
                 </a>
             </div>
 
-            <a href="#calculate" class="mobile-menu-cta">
+            <a href="#quiz" class="mobile-menu-cta">
                 Рассчитать проект
                 <span>↗</span>
             </a>
@@ -245,7 +245,7 @@
 
             <div class="hero-actions">
 
-                <a href="#calculate" class="hero-primary-button">
+                <a href="#quiz" class="hero-primary-button">
 
                     <span class="button-shine"></span>
 
@@ -346,19 +346,14 @@
      DEMO CONTENT
      Только чтобы hero имел куда скроллиться.
 ========================================================= -->
-
+ <section class="quiz-section" id="quiz">
+      <div id="lightQuiz"></div>
+  </section>
+  
 <section id="projects" class="demo-section">
     <span>01 / PROJECTS</span>
     <h2>Проекты, которые<br>видно ночью.</h2>
 </section>
-
-<!-- =========================================================
-     QUIZ
-     ========================================================= -->
-
-    <section class="quiz-section" id="quiz">
-        <div id="lightQuiz"></div>
-    </section>
 
 <section id="solutions" class="demo-section demo-dark">
     <span>02 / SOLUTIONS</span>
@@ -375,15 +370,17 @@
     <h2>Создаём свет,<br>который запоминается.</h2>
 </section>
 
-<section id="calculate" class="demo-section">
-    <span>05 / CALCULATE</span>
+<!-- <section id="quiz" class="demo-section">
+    <span>05 / quiz</span>
     <h2>Рассчитаем ваш<br>проект.</h2>
-</section>
+</section> -->
+
 
 </main>
 
-
-<script src="script.js"></script>
+<script src="./js/jquery-371min.js"></script>
+<script src="./js/jquerymaskedinputmin.js"></script>
+<script src="js/script.js"></script>
 <link rel="stylesheet" href="quiz/quiz.css">
 
 <script src="quiz/quiz.js"></script>

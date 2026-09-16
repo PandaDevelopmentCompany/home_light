@@ -1,3 +1,4 @@
+
 /* ============================================================
    LIGHT / HOME — QUIZ
    ============================================================ */
@@ -45,6 +46,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     let currentStep = 0;
 
     const answers = {};
+
+    /* ========================================================
+       LEAD DATA
+       ======================================================== */
+
+    let leadData = {
+        name: "",
+        phone: "",
+        personalConsent: false,
+        marketingConsent: false
+    };
 
     /* ========================================================
        RENDER
@@ -350,6 +362,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                                     placeholder="${escapeAttribute(
                                         lead.namePlaceholder || "Ваше имя"
                                     )}"
+                                    value="${escapeAttribute(leadData.name)}"
                                 >
                             </div>
 
@@ -364,6 +377,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                                         lead.phonePlaceholder ||
                                         "+7 (___) ___-__-__"
                                     )}"
+                                    value="${escapeAttribute(leadData.phone)}"
                                     required
                                 >
 
@@ -378,6 +392,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                                 <input
                                     type="checkbox"
                                     name="personalConsent"
+                                    ${leadData.personalConsent ? "checked" : ""}
                                     required
                                 >
 
@@ -395,6 +410,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                                 <input
                                     type="checkbox"
                                     name="marketingConsent"
+                                    ${leadData.marketingConsent ? "checked" : ""}
                                 >
 
                                 <span>
@@ -414,17 +430,21 @@ document.addEventListener("DOMContentLoaded", async () => {
                         >
                         </div>
 
-                        <button
-                            type="submit"
-                            class="quiz-submit"
-                        >
-                            ${escapeHTML(
-                                lead.button ||
-                                "Получить визуализацию"
-                            )}
+                        <div class="quiz-navigation quiz-lead-navigation">
 
-                            <span>→</span>
-                        </button>
+                            <button
+                                type="submit"
+                                class="quiz-submit"
+                            >
+                                ${escapeHTML(
+                                    lead.button ||
+                                    "Получить визуализацию"
+                                )}
+
+                                <span>→</span>
+                            </button>
+
+                        </div>
 
                     </form>
 
@@ -501,12 +521,55 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
         }
 
+
+        const form = document.querySelector("#quizLeadForm");
+
+if (form) {
+    form.addEventListener("submit", handleSubmit);
+
+    const phoneInput = form.querySelector('input[name="phone"]');
+
+    if (phoneInput && typeof $ !== "undefined") {
+        $(phoneInput).mask("+7 (999) 999-99-99");
+    }
+}
+
+        /* ====================================================
+           BACK BUTTON
+           ==================================================== */
+
         const back =
             document.querySelector("#quizBack");
 
         if (back) {
 
             back.addEventListener("click", () => {
+
+                /*
+                 * Если мы на шаге контактов,
+                 * сначала сохраняем введённые данные.
+                 */
+
+                if (currentStep === steps.length) {
+
+                    const form =
+                        document.querySelector("#quizLeadForm");
+
+                    if (form) {
+
+                        leadData.name =
+                            form.elements.name.value.trim();
+
+                        leadData.phone =
+                            form.elements.phone.value.trim();
+
+                        leadData.personalConsent =
+                            form.elements.personalConsent.checked;
+
+                        leadData.marketingConsent =
+                            form.elements.marketingConsent.checked;
+                    }
+                }
 
                 if (currentStep <= 0) return;
 
@@ -516,20 +579,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
         }
 
-        const form =
-            document.querySelector("#quizLeadForm");
-
-        if (form) {
-
-            form.addEventListener(
-                "submit",
-                handleSubmit
-            );
-
-            setupPhoneMask(
-                form.querySelector('input[name="phone"]')
-            );
-        }
+      
     }
 
     /* ========================================================
@@ -629,6 +679,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             return;
         }
+
+        /*
+         * Сохраняем актуальные данные перед отправкой.
+         */
+
+        leadData.name = name;
+        leadData.phone = phone;
+        leadData.personalConsent = personalConsent;
+        leadData.marketingConsent = marketingConsent;
 
         const submitButton =
             form.querySelector(".quiz-submit");
@@ -808,68 +867,6 @@ document.addEventListener("DOMContentLoaded", async () => {
        PHONE MASK
        ======================================================== */
 
-    function setupPhoneMask(input) {
-
-        if (!input) return;
-
-        input.addEventListener(
-            "input",
-            event => {
-
-                let value =
-                    event.target.value
-                        .replace(/\D/g, "");
-
-                if (!value) {
-                    event.target.value = "";
-                    return;
-                }
-
-                if (value[0] === "8") {
-                    value = "7" + value.slice(1);
-                }
-
-                if (value[0] !== "7") {
-                    value = "7" + value;
-                }
-
-                value =
-                    value.substring(0, 11);
-
-                let result = "+7";
-
-                if (value.length > 1) {
-                    result +=
-                        " (" +
-                        value.substring(1, 4);
-                }
-
-                if (value.length >= 4) {
-                    result += ")";
-                }
-
-                if (value.length > 4) {
-                    result +=
-                        " " +
-                        value.substring(4, 7);
-                }
-
-                if (value.length > 7) {
-                    result +=
-                        "-" +
-                        value.substring(7, 9);
-                }
-
-                if (value.length > 9) {
-                    result +=
-                        "-" +
-                        value.substring(9, 11);
-                }
-
-                event.target.value = result;
-            }
-        );
-    }
 
     /* ========================================================
        ICONS
