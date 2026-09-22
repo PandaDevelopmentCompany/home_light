@@ -3,7 +3,7 @@
     "title": "Подберём свет для вашего дома",
     "subtitle": "Ответьте на несколько вопросов — и мы подготовим направление будущей подсветки.",
     "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg",
-    "googleScriptUrl": "",
+    "googleScriptUrl": "https://script.google.com/macros/s/AKfycbwDDs3HNf_LTH0SrKakK-ZfVK0Y6TOPaWaElz4LRIEDzS3Su8pKFYpFd5GecH5tj3H5tA/exec",
     "successTitle": "Заявка отправлена",
     "successText": "Спасибо. Мы получили ваши ответы и скоро свяжемся с вами."
   },
