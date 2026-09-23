@@ -76,10 +76,19 @@
                 <span>+7 (000) 000-00-00</span>
             </a>
 
-            <a href="#quiz" class="header-button">
+           <!--  <a href="#quiz" class="header-button">
                 <span>Рассчитать стоимость</span>
                 <span class="button-arrow">↗</span>
-            </a>
+            </a> -->
+
+            <a href="#"
+           class="header-button callback-trigger">
+
+            <span>Заказать звонок</span>
+
+            <span class="button-arrow">↗</span>
+
+             </a>
 
         </div>
 
@@ -377,6 +386,133 @@
 
 
 </main>
+
+
+
+
+<!-- =========================================================
+     CALLBACK MODAL
+========================================================= -->
+
+<div class="callback-modal" id="callbackModal">
+
+    <div class="callback-modal-overlay" id="callbackModalOverlay"></div>
+
+    <div class="callback-modal-window">
+
+        <button
+            type="button"
+            class="callback-modal-close"
+            id="callbackModalClose"
+            aria-label="Закрыть"
+        >
+            ×
+        </button>
+
+        <div class="callback-modal-content">
+
+            <div class="callback-modal-kicker">
+                ОБРАТНЫЙ ЗВОНОК
+            </div>
+
+            <h2 class="callback-modal-title">
+                Остались вопросы?
+            </h2>
+
+            <p class="callback-modal-text">
+                Оставьте номер телефона — мы свяжемся с вами
+                и ответим на все вопросы по проекту.
+            </p>
+
+
+            <form id="callbackForm">
+
+                <div class="callback-field">
+
+                    <input
+                        type="text"
+                        name="name"
+                        autocomplete="name"
+                        placeholder="Ваше имя"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="callback-field">
+
+                    <input
+                        type="tel"
+                        name="phone"
+                        autocomplete="tel"
+                        inputmode="tel"
+                        placeholder="+7 (___) ___-__-__"
+                        required
+                    >
+
+                </div>
+
+
+                <label class="callback-consent">
+
+                    <input
+                        type="checkbox"
+                        name="personalConsent"
+                        required
+                    >
+
+                    <span>
+                        Я даю согласие на обработку моих персональных данных
+                    </span>
+
+                </label>
+
+
+                <div
+                    class="callback-error"
+                    id="callbackFormError"
+                ></div>
+
+
+                <button
+                    type="submit"
+                    class="callback-submit"
+                >
+                    <span>Перезвоните мне</span>
+                    <span>↗</span>
+                </button>
+
+            </form>
+
+
+            <div
+                class="callback-success"
+                id="callbackSuccess"
+            >
+
+                <div class="callback-success-icon">
+                    ✓
+                </div>
+
+                <h3>
+                    Заявка отправлена
+                </h3>
+
+                <p>
+                    Спасибо! Мы свяжемся с вами в ближайшее время.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
 
 <script src="./js/jquery-371min.js"></script>
 <script src="./js/jquerymaskedinputmin.js"></script>

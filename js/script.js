@@ -360,3 +360,409 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   CALLBACK MODAL
+   ============================================================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const modal =
+        document.querySelector("#callbackModal");
+
+    if (!modal) return;
+
+
+    const overlay =
+        document.querySelector("#callbackModalOverlay");
+
+    const closeButton =
+        document.querySelector("#callbackModalClose");
+
+    const form =
+        document.querySelector("#callbackForm");
+
+    const success =
+        document.querySelector("#callbackSuccess");
+
+    const error =
+        document.querySelector("#callbackFormError");
+
+
+    /* ========================================================
+       OPEN
+       ======================================================== */
+
+    function openCallbackModal() {
+
+        modal.classList.add("active");
+
+        document.body.classList.add("callback-modal-open");
+
+        document.body.style.overflow = "hidden";
+
+
+        /*
+         * Возвращаем форму,
+         * если окно открывается повторно.
+         */
+
+        if (form) {
+            form.style.display = "";
+        }
+
+        if (success) {
+            success.classList.remove("active");
+        }
+
+        if (error) {
+            error.textContent = "";
+            error.classList.remove("visible");
+        }
+
+
+        /*
+         * Подключаем телефонную маску.
+         */
+
+        const phoneInput =
+            form?.querySelector('input[name="phone"]');
+
+        if (
+            phoneInput &&
+            typeof $ !== "undefined" &&
+            $.fn.mask
+        ) {
+
+            $(phoneInput).mask(
+                "+7 (999) 999-99-99"
+            );
+
+        }
+
+
+        /*
+         * Фокус на имя.
+         */
+
+        setTimeout(() => {
+
+            const nameInput =
+                form?.querySelector('input[name="name"]');
+
+            if (nameInput) {
+                nameInput.focus();
+            }
+
+        }, 350);
+    }
+
+
+    /* ========================================================
+       CLOSE
+       ======================================================== */
+
+    function closeCallbackModal() {
+
+        modal.classList.remove("active");
+
+        document.body.classList.remove(
+            "callback-modal-open"
+        );
+
+        document.body.style.overflow = "";
+    }
+
+
+    /* ========================================================
+       CALLBACK BUTTONS
+       ======================================================== */
+
+    /*
+     * Можно поставить этот класс на любое количество кнопок.
+     *
+     * <a href="#" class="callback-trigger">
+     * <button class="callback-trigger">
+     */
+
+    document
+        .querySelectorAll(".callback-trigger")
+        .forEach(button => {
+
+            button.addEventListener("click", event => {
+
+                event.preventDefault();
+
+                openCallbackModal();
+
+            });
+
+        });
+
+
+    /* ========================================================
+       CLOSE BUTTON
+       ======================================================== */
+
+    if (closeButton) {
+
+        closeButton.addEventListener(
+            "click",
+            event => {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+                closeCallbackModal();
+
+            }
+        );
+
+    }
+
+
+    /* ========================================================
+       OVERLAY
+       ======================================================== */
+
+    if (overlay) {
+
+        overlay.addEventListener(
+            "click",
+            closeCallbackModal
+        );
+
+    }
+
+
+    /* ========================================================
+       ESC
+       ======================================================== */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Escape" &&
+                modal.classList.contains("active")
+            ) {
+
+                closeCallbackModal();
+
+            }
+
+        }
+    );
+
+
+    /* ========================================================
+       SUBMIT
+       ======================================================== */
+
+    if (form) {
+
+        form.addEventListener(
+            "submit",
+            async event => {
+
+                event.preventDefault();
+
+
+                const name =
+                    form.elements.name.value.trim();
+
+                const phone =
+                    form.elements.phone.value.trim();
+
+                const personalConsent =
+                    form.elements.personalConsent.checked;
+
+
+                /* ------------------------------------------------
+                   VALIDATION
+                ------------------------------------------------ */
+
+                if (
+                    !name ||
+                    !phone ||
+                    !personalConsent
+                ) {
+
+                    if (error) {
+
+                        error.textContent =
+                            "Заполните имя, телефон и подтвердите согласие.";
+
+                        error.classList.add("visible");
+
+                    }
+
+                    return;
+                }
+
+
+                /* ------------------------------------------------
+                   BUTTON
+                ------------------------------------------------ */
+
+                const submitButton =
+                    form.querySelector(
+                        ".callback-submit"
+                    );
+
+                submitButton.disabled = true;
+
+                submitButton.innerHTML =
+                    "<span>Отправляем...</span>";
+
+
+                /* ------------------------------------------------
+                   PAYLOAD
+                ------------------------------------------------ */
+
+                const payload = {
+
+                    type: "callback",
+
+                    timestamp:
+                        new Date().toISOString(),
+
+                    name,
+
+                    phone,
+
+                    personalConsent,
+
+                    marketingConsent: false,
+
+                    source:
+                        window.location.href
+
+                };
+
+
+                /* ------------------------------------------------
+                   SEND
+                ------------------------------------------------ */
+
+                try {
+
+                    const response =
+                        await fetch(
+                            "./quiz/quiz.json"
+                        );
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            "Не удалось загрузить настройки"
+                        );
+
+                    }
+
+
+                    const config =
+                        await response.json();
+
+
+                    const googleScriptUrl =
+                        config.settings?.googleScriptUrl;
+
+
+                    if (!googleScriptUrl) {
+
+                        throw new Error(
+                            "Google Apps Script URL не указан"
+                        );
+
+                    }
+
+
+                    await fetch(
+                        googleScriptUrl,
+                        {
+                            method: "POST",
+
+                            mode: "no-cors",
+
+                            headers: {
+                                "Content-Type":
+                                    "text/plain;charset=utf-8"
+                            },
+
+                            body:
+                                JSON.stringify(payload)
+                        }
+                    );
+
+
+                    /* ------------------------------------------------
+                       SUCCESS
+                    ------------------------------------------------ */
+
+                    form.style.display = "none";
+
+
+                    if (error) {
+                        error.classList.remove(
+                            "visible"
+                        );
+                    }
+
+
+                    if (success) {
+                        success.classList.add(
+                            "active"
+                        );
+                    }
+
+
+                } catch (submitError) {
+
+                    console.error(
+                        "Callback submit error:",
+                        submitError
+                    );
+
+
+                    if (error) {
+
+                        error.textContent =
+                            "Не удалось отправить заявку. Попробуйте ещё раз.";
+
+                        error.classList.add(
+                            "visible"
+                        );
+
+                    }
+
+
+                    submitButton.disabled = false;
+
+                    submitButton.innerHTML = `
+                        <span>Перезвоните мне</span>
+                        <span>↗</span>
+                    `;
+
+                }
+
+            }
+        );
+
+    }
+
+});
