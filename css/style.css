@@ -2286,3 +2286,18 @@ button {
     }
 
 }
+
+
+/* ============================================================
+   MOBILE — БЕЗ PARALLAX И УВЕЛИЧЕНИЯ HERO
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    .hero-image {
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+
+}
