@@ -1539,7 +1539,7 @@ button {
     }
 
     .light-trace-right {
-        display: none;
+    display: block;
     }
 
     .light-trace-top {
