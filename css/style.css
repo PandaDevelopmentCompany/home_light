@@ -2347,3 +2347,50 @@ button {
     }
 
 }
+
+
+/* =========================================================
+   MOBILE MENU — ARROWS
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .mobile-nav-arrow {
+        font-size: 0;
+    }
+
+    .mobile-nav-arrow::after {
+        content: "";
+
+        display: inline-block;
+
+        width: 17px;
+        height: 17px;
+
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 19L19 5M9 5h10v10' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+
+
+    .mobile-menu-cta span {
+        font-size: 0;
+    }
+
+   .mobile-menu-cta span::after {
+    content: "";
+
+    display: inline-block;
+
+    width: 17px;
+    height: 17px;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 19L19 5M9 5h10v10' fill='none' stroke='%23111' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
