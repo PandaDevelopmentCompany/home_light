@@ -2313,3 +2313,33 @@ button {
     }
 
 }
+
+
+
+/* =========================================================
+   MOBILE — HERO ARROW
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .hero-button-arrow {
+        font-size: 0;
+    }
+
+    .hero-button-arrow::after {
+        content: "↗";
+
+        font-family:
+            Arial,
+            Helvetica,
+            sans-serif;
+
+        font-size: 17px;
+        font-weight: 400;
+
+        line-height: 1;
+
+        color: #fff;
+    }
+
+}
