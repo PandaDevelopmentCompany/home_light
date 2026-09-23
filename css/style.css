@@ -2315,9 +2315,12 @@ button {
 }
 
 
-
 /* =========================================================
-   MOBILE — HERO ARROW
+   MOBILE — arrow header
+========================================================= */
+/* =========================================================
+   MOBILE — HERO BUTTON ARROW
+   Без Unicode / Emoji
 ========================================================= */
 
 @media (max-width: 800px) {
@@ -2326,20 +2329,36 @@ button {
         font-size: 0;
     }
 
+    .hero-button-arrow::before {
+        content: "";
+
+        position: absolute;
+
+        width: 13px;
+        height: 13px;
+
+        top: 10px;
+        left: 10px;
+
+        border-top: 2px solid #fff;
+        border-right: 2px solid #fff;
+    }
+
     .hero-button-arrow::after {
-        content: "↗";
+        content: "";
 
-        font-family:
-            Arial,
-            Helvetica,
-            sans-serif;
+        position: absolute;
 
-        font-size: 17px;
-        font-weight: 400;
+        width: 17px;
+        height: 2px;
 
-        line-height: 1;
+        top: 18px;
+        left: 9px;
 
-        color: #fff;
+        background: #fff;
+
+        transform: rotate(-45deg);
+        transform-origin: left center;
     }
 
 }
