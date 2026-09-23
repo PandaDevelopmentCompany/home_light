@@ -2320,7 +2320,6 @@ button {
 ========================================================= */
 /* =========================================================
    MOBILE — HERO BUTTON ARROW
-   Без Unicode / Emoji
 ========================================================= */
 
 @media (max-width: 800px) {
@@ -2329,36 +2328,22 @@ button {
         font-size: 0;
     }
 
-    .hero-button-arrow::before {
-        content: "";
-
-        position: absolute;
-
-        width: 13px;
-        height: 13px;
-
-        top: 10px;
-        left: 10px;
-
-        border-top: 2px solid #fff;
-        border-right: 2px solid #fff;
-    }
-
     .hero-button-arrow::after {
         content: "";
 
         position: absolute;
 
         width: 17px;
-        height: 2px;
+        height: 17px;
 
-        top: 18px;
-        left: 9px;
+        top: 10px;
+        left: 10px;
 
-        background: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 19L19 5M9 5h10v10' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 
-        transform: rotate(-45deg);
-        transform-origin: left center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
     }
 
 }
