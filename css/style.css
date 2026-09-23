@@ -2301,3 +2301,21 @@ button {
     }
 
 }
+
+@media (max-width: 768px) {
+
+    .hero-image {
+        inset: 0;
+
+        transform: none !important;
+
+        transition: none !important;
+
+        animation: none !important;
+    }
+
+    .hero:hover .hero-image {
+        transform: none !important;
+    }
+
+}
