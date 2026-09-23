@@ -206,41 +206,50 @@ document.addEventListener("DOMContentLoaded", () => {
     const hero = document.querySelector(".hero");
     const heroImage = document.querySelector(".hero-image");
 
-    if (
-        hero &&
-        heroImage &&
-        window.matchMedia("(min-width: 769px) and (pointer: fine)").matches
-    ) {
+    if (hero && heroImage) {
 
-        hero.addEventListener("mousemove", event => {
+        const isDesktop =
+            window.innerWidth > 768 &&
+            !("ontouchstart" in window);
 
-            const rect = hero.getBoundingClientRect();
+        if (isDesktop) {
 
-            const x =
-                (event.clientX - rect.left) /
-                rect.width -
-                0.5;
+            hero.addEventListener("mousemove", event => {
 
-            const y =
-                (event.clientY - rect.top) /
-                rect.height -
-                0.5;
+                const rect = hero.getBoundingClientRect();
 
-            const moveX = x * 10;
-            const moveY = y * 7;
+                const x =
+                    (event.clientX - rect.left) /
+                    rect.width -
+                    0.5;
 
-            heroImage.style.transform =
-                `scale(1.045) translate(${moveX}px, ${moveY}px)`;
+                const y =
+                    (event.clientY - rect.top) /
+                    rect.height -
+                    0.5;
 
-        });
+                const moveX = x * 10;
+                const moveY = y * 7;
 
+                heroImage.style.transform =
+                    `scale(1.045) translate(${moveX}px, ${moveY}px)`;
 
-        hero.addEventListener("mouseleave", () => {
+            });
 
-            heroImage.style.transform =
-                "scale(1.03) translate(0, 0)";
+            hero.addEventListener("mouseleave", () => {
 
-        });
+                heroImage.style.transform =
+                    "scale(1.03) translate(0, 0)";
+
+            });
+
+        } else {
+
+            /* На мобильных полностью отключаем параллакс */
+
+            heroImage.style.transform = "none";
+
+        }
 
     }
 
