@@ -2288,19 +2288,9 @@ button {
 }
 
 
-/* ============================================================
-   MOBILE — БЕЗ PARALLAX И УВЕЛИЧЕНИЯ HERO
-   ============================================================ */
-
-@media (max-width: 768px) {
-
-    .hero-image {
-        transform: none !important;
-        transition: none !important;
-        animation: none !important;
-    }
-
-}
+/* =========================================================
+   MOBILE — STATIC HERO IMAGE
+========================================================= */
 
 @media (max-width: 768px) {
 
@@ -2312,6 +2302,10 @@ button {
         transition: none !important;
 
         animation: none !important;
+
+        background-size: cover;
+
+        background-position: 62% center;
     }
 
     .hero:hover .hero-image {

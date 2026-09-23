@@ -208,11 +208,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (hero && heroImage) {
 
-        const isDesktop =
-            window.innerWidth > 768 &&
-            !("ontouchstart" in window);
+        const desktopPointer =
+            window.matchMedia("(hover: hover) and (pointer: fine)");
 
-        if (isDesktop) {
+        if (desktopPointer.matches) {
 
             hero.addEventListener("mousemove", event => {
 
@@ -245,9 +244,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         } else {
 
-            /* На мобильных полностью отключаем параллакс */
+            /* Мобильные и touch-устройства */
 
             heroImage.style.transform = "none";
+            heroImage.style.transition = "none";
 
         }
 
