@@ -583,35 +583,74 @@ if (form) {
     }
 
     /* ========================================================
-       STEP ANIMATION
-       ======================================================== */
+   STEP ANIMATION
+   ======================================================== */
 
-    function animateStepChange() {
+function animateStepChange() {
 
-        const content =
-            document.querySelector("#quizContent");
+    const content =
+        document.querySelector("#quizContent");
 
-        if (!content) return;
+    if (!content) return;
 
-        content.style.opacity = "0";
-        content.style.transform = "translateY(12px)";
+    content.style.opacity = "0";
+    content.style.transform = "translateY(12px)";
 
-        setTimeout(() => {
+    setTimeout(() => {
 
-            renderStep();
+        renderStep();
 
-            requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
 
-                content.style.transition =
-                    "opacity .45s ease, transform .45s cubic-bezier(.22,1,.36,1)";
+            content.style.transition =
+                "opacity .45s ease, transform .45s cubic-bezier(.22,1,.36,1)";
 
-                content.style.opacity = "1";
-                content.style.transform = "translateY(0)";
+            content.style.opacity = "1";
+            content.style.transform = "translateY(0)";
 
-            });
+        });
 
-        }, 180);
-    }
+
+        /* ====================================================
+           MOBILE — SCROLL QUIZ INTO VIEW
+           ==================================================== */
+
+        if (window.innerWidth <= 800) {
+
+            setTimeout(() => {
+
+                const quizWindow =
+                    document.querySelector(".quiz-window");
+
+                if (!quizWindow) return;
+
+                const header =
+                    document.querySelector("#siteHeader");
+
+                const headerHeight =
+                    header
+                        ? header.offsetHeight
+                        : 0;
+
+                const offset = 24;
+
+                const position =
+                    quizWindow.getBoundingClientRect().top +
+                    window.scrollY -
+                    headerHeight -
+                    offset;
+
+                window.scrollTo({
+                    top: position,
+                    behavior: "smooth"
+                });
+
+            }, 220);
+
+        }
+
+    }, 180);
+}
 
     /* ========================================================
        PROGRESS
