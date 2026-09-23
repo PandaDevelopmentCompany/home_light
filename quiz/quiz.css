@@ -473,6 +473,60 @@
     font-weight: 600;
 }
 
+.quiz-contact-icon svg {
+    width: 28px;
+    height: 28px;
+
+    display: block;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* WhatsApp и Telegram используют заливку */
+.quiz-contact-icon svg path:first-child {
+    fill: currentColor;
+    stroke: none;
+}
+
+
+/* Вторая часть WhatsApp тоже должна быть залитой */
+.quiz-contact-icon svg path:nth-child(2) {
+    fill: currentColor;
+    stroke: none;
+}
+
+
+/* Telegram */
+.quiz-contact-option[data-option="telegram"] .quiz-contact-icon svg path {
+    fill: currentColor;
+    stroke: none;
+}
+
+
+/* WhatsApp */
+.quiz-contact-option[data-option="whatsapp"] .quiz-contact-icon svg path {
+    fill: currentColor;
+    stroke: none;
+}
+
+
+/* Email оставляем контурным */
+.quiz-contact-option[data-option="email"] .quiz-contact-icon svg rect,
+.quiz-contact-option[data-option="email"] .quiz-contact-icon svg path {
+    fill: none;
+    stroke: currentColor;
+}
+
+.quiz-contact-option[data-option="telegram"] .quiz-contact-icon svg {
+    transform: translateX(-2px);
+}
+
 /* ============================================================
    NAVIGATION
    ============================================================ */

@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (
         hero &&
         heroImage &&
-        window.matchMedia("(pointer: fine)").matches
+        window.matchMedia("(min-width: 769px) and (pointer: fine)").matches
     ) {
 
         hero.addEventListener("mousemove", event => {
