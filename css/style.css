@@ -2394,3 +2394,98 @@ button {
     background-position: center;
 }
 
+
+
+
+
+/* =========================================================
+   MOBILE — LIGHT TRACE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    /* Верх: уходит далеко вправо */
+    .light-trace-top {
+        left: -30%;
+
+        width: 30%;
+        height: 1px;
+
+        animation:
+            lightSweepHorizontalMobile 7s linear infinite;
+    }
+
+
+    /* Правая сторона: сверху вниз */
+    .light-trace-right {
+        right: 0;
+        top: -20%;
+
+        width: 1px;
+        height: 20%;
+
+        animation:
+            lightSweepVerticalMobile 7s linear infinite;
+
+        animation-delay: 2.4s;
+    }
+
+
+    /* Низ: уходит далеко влево */
+    .light-trace-bottom {
+        bottom: 0;
+        right: -30%;
+
+        width: 30%;
+        height: 1px;
+
+        animation:
+            lightSweepHorizontalReverseMobile 7s linear infinite;
+
+        animation-delay: 3.7s;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE — LIGHT TRACE ANIMATIONS
+========================================================= */
+
+@keyframes lightSweepHorizontalMobile {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(400vw);
+    }
+
+}
+
+
+@keyframes lightSweepVerticalMobile {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(450vh);
+    }
+
+}
+
+
+@keyframes lightSweepHorizontalReverseMobile {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-500vw);
+    }
+
+}
