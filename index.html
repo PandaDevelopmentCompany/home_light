@@ -359,10 +359,328 @@
       <div id="lightQuiz"></div>
   </section>
   
-<section id="projects" class="demo-section">
-    <span>01 / PROJECTS</span>
-    <h2>Проекты, которые<br>видно ночью.</h2>
+
+
+
+
+<!-- =========================================================
+     PROJECTS
+========================================================= -->
+
+<section class="projects-section" id="projects">
+
+    <div class="projects-container">
+
+        <!-- HEADER -->
+
+        <div class="projects-header">
+
+            <div class="projects-heading">
+
+                <div class="projects-kicker">
+                    <span class="projects-kicker-line"></span>
+                    <span>НАШИ ПРОЕКТЫ</span>
+                </div>
+
+                <h2 class="projects-title">
+                    Свет, который<br>
+                    <span>меняет архитектуру.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="projects-intro">
+                Реализованные проекты праздничной
+                и архитектурной подсветки частных домов.
+            </div>
+
+        </div>
+
+
+
+        <!-- FILTERS -->
+
+        <div class="projects-filters" id="projectsFilters">
+
+            <button
+                type="button"
+                class="project-filter active"
+                data-filter="all"
+            >
+                Все
+            </button>
+
+            <button
+                type="button"
+                class="project-filter"
+                data-filter="garland"
+            >
+                Гирлянды
+            </button>
+
+            <button
+                type="button"
+                class="project-filter"
+                data-filter="neon"
+            >
+                Неон
+            </button>
+
+            <button
+                type="button"
+                class="project-filter"
+                data-filter="architecture"
+            >
+                Архитектурная
+            </button>
+
+            <button
+                type="button"
+                class="project-filter"
+                data-filter="combined"
+            >
+                Комбинированные
+            </button>
+
+        </div>
+
+
+
+        <!-- PROJECT VIEWER -->
+
+        <div class="projects-viewer" id="projectsViewer">
+
+            <!-- MAIN IMAGE -->
+
+            <div class="projects-main">
+
+                <button
+                    type="button"
+                    class="project-image-button"
+                    id="projectImageButton"
+                    aria-label="Открыть фотографию проекта"
+                >
+
+                    <img
+                        id="projectMainImage"
+                        src="img/work/work_1.jpg"
+                        alt=""
+                    >
+
+                    <div class="project-image-overlay"></div>
+
+                    <div class="project-image-number">
+                        <span id="projectCurrentImage">01</span>
+                        <span>/</span>
+                        <span id="projectTotalImages">04</span>
+                    </div>
+
+                    <div class="project-image-open">
+                        <span>Открыть</span>
+                        <span class="project-open-icon">↗</span>
+                    </div>
+
+                </button>
+
+
+
+                <!-- ARROWS -->
+
+                <button
+                    type="button"
+                    class="project-arrow project-arrow-prev"
+                    id="projectPrev"
+                    aria-label="Предыдущая фотография"
+                >
+                    ←
+                </button>
+
+                <button
+                    type="button"
+                    class="project-arrow project-arrow-next"
+                    id="projectNext"
+                    aria-label="Следующая фотография"
+                >
+                    →
+                </button>
+
+            </div>
+
+
+
+            <!-- PROJECT INFO -->
+
+            <div class="project-info">
+
+                <div class="project-info-top">
+
+                    <div>
+
+                        <div class="project-number">
+                            ПРОЕКТ <span id="projectNumber">01</span>
+                        </div>
+
+                        <h3
+                            class="project-name"
+                            id="projectName"
+                        >
+                            Дом в Тишнево
+                        </h3>
+
+                    </div>
+
+
+                    <div
+                        class="project-year"
+                        id="projectYear"
+                    >
+                        2026
+                    </div>
+
+                </div>
+
+
+
+                <div
+                    class="project-description"
+                    id="projectDescription"
+                >
+                    Комбинированная подсветка фасада,
+                    террас и прилегающих зон.
+                </div>
+
+
+
+                <!-- STATS -->
+
+                <div
+                    class="project-stats"
+                    id="projectStats"
+                ></div>
+
+
+
+                <!-- THUMBNAILS -->
+
+                <div
+                    class="project-thumbnails"
+                    id="projectThumbnails"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- BOTTOM -->
+
+        <div class="projects-bottom">
+
+            <div class="projects-bottom-label">
+                <span class="projects-bottom-dot"></span>
+                Реализованные проекты
+            </div>
+
+            <div class="projects-bottom-count">
+                <span id="projectsVisibleCount">05</span>
+                проектов
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
+
+
+
+<!-- =========================================================
+     PROJECT LIGHTBOX
+========================================================= -->
+
+<div
+    class="project-lightbox"
+    id="projectLightbox"
+    aria-hidden="true"
+>
+
+    <div
+        class="project-lightbox-backdrop"
+        id="projectLightboxBackdrop"
+    ></div>
+
+
+    <div class="project-lightbox-window">
+
+        <button
+            type="button"
+            class="project-lightbox-close"
+            id="projectLightboxClose"
+            aria-label="Закрыть"
+        >
+            ×
+        </button>
+
+
+        <div class="lightbox-counter">
+            <span id="lightboxCurrent">01</span>
+            <span>/</span>
+            <span id="lightboxTotal">04</span>
+        </div>
+
+
+        <button
+            type="button"
+            class="lightbox-arrow lightbox-prev"
+            id="lightboxPrev"
+            aria-label="Предыдущая фотография"
+        >
+            ←
+        </button>
+
+
+        <div class="lightbox-image-wrap">
+
+            <img
+                id="lightboxImage"
+                src=""
+                alt=""
+            >
+
+        </div>
+
+
+        <button
+            type="button"
+            class="lightbox-arrow lightbox-next"
+            id="lightboxNext"
+            aria-label="Следующая фотография"
+        >
+            →
+        </button>
+
+
+        <div class="lightbox-caption">
+
+            <span id="lightboxProjectName">
+                Дом в Тишнево
+            </span>
+
+            <span id="lightboxProjectYear">
+                2026
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
 
 <section id="solutions" class="demo-section demo-dark">
     <span>02 / SOLUTIONS</span>

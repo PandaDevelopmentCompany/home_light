@@ -775,3 +775,1103 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   PROJECTS GALLERY
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const projectMainImage =
+        document.getElementById("projectMainImage");
+
+    const projectImageButton =
+        document.getElementById("projectImageButton");
+
+    const projectCurrentImage =
+        document.getElementById("projectCurrentImage");
+
+    const projectTotalImages =
+        document.getElementById("projectTotalImages");
+
+    const projectNumber =
+        document.getElementById("projectNumber");
+
+    const projectName =
+        document.getElementById("projectName");
+
+    const projectYear =
+        document.getElementById("projectYear");
+
+    const projectDescription =
+        document.getElementById("projectDescription");
+
+    const projectStats =
+        document.getElementById("projectStats");
+
+    const projectThumbnails =
+        document.getElementById("projectThumbnails");
+
+    const projectPrev =
+        document.getElementById("projectPrev");
+
+    const projectNext =
+        document.getElementById("projectNext");
+
+    const filters =
+        document.querySelectorAll(".project-filter");
+
+    const projectsVisibleCount =
+        document.getElementById("projectsVisibleCount");
+
+
+
+    /* =====================================================
+       PROJECT DATA
+
+       Здесь потом можно спокойно менять
+       названия, фотографии, категории и описание.
+    ===================================================== */
+
+    const projects = [
+
+        {
+            title: "Дом в Тишнево",
+
+            year: "2026",
+
+            categories: [
+                "neon",
+                "garland",
+                "combined"
+            ],
+
+            description:
+                "Комбинированная подсветка фасада, " +
+                "веранд и архитектурных элементов дома.",
+
+            stats: [
+                "45 м.п. — Неон + Бахрома",
+                "15 м.п. — гибкий Неон",
+                "Wi-Fi управление"
+            ],
+
+            images: [
+                "img/work/work_1.jpg",
+                "img/work/work_2.jpg",
+                "img/work/work_3.jpg",
+                "img/work/work_4.jpg"
+            ]
+        },
+
+
+        {
+            title: "Дом в Удачном",
+
+            year: "2026",
+
+            categories: [
+                "neon",
+                "garland",
+                "combined"
+            ],
+
+            description:
+                "Выразительная подсветка дома и беседки " +
+                "с акцентом на архитектурные линии.",
+
+            stats: [
+                "65 м.п. — гибкий Неон",
+                "12 м.п. — Бахрома",
+                "24 м.п. — Неон для беседки"
+            ],
+
+            images: [
+                "img/work/work_5.jpg",
+                "img/work/work_6.jpg",
+                "img/work/work_7.jpg",
+                "img/work/work_8.jpg"
+            ]
+        },
+
+
+        {
+            title: "Дом в Емельяново",
+
+            year: "2026",
+
+            categories: [
+                "garland",
+                "combined"
+            ],
+
+            description:
+                "Праздничное оформление дома, ели " +
+                "и территории световыми конструкциями.",
+
+            stats: [
+                "60 м.п. — Бахрома",
+                "25 м.п. — Нить",
+                "3 световые конструкции"
+            ],
+
+            images: [
+                "img/work/work_9.jpg",
+                "img/work/work_10.jpg",
+                "img/work/work_11.jpg",
+                "img/work/work_12.jpg"
+            ]
+        },
+
+
+        {
+            title: "Таунхаус Опушкино",
+
+            year: "2026",
+
+            categories: [
+                "garland",
+                "neon"
+            ],
+
+            description:
+                "Лаконичная подсветка таунхауса, " +
+                "веранды, гаража и входной группы.",
+
+            stats: [
+                "35 м.п. — Бахрома",
+                "34 м.п. — Бахрома",
+                "20 м.п. — гибкий Неон"
+            ],
+
+            images: [
+                "img/work/work_13.jpg",
+                "img/work/work_14.jpg",
+                "img/work/work_15.jpg",
+                "img/work/work_16.jpg"
+            ]
+        },
+
+
+        {
+            title: "Дом в Жуковском",
+
+            year: "2026",
+
+            categories: [
+                "garland",
+                "architecture",
+                "combined"
+            ],
+
+            description:
+                "Масштабный проект с комбинированной " +
+                "подсветкой дома, деревьев и парковочной зоны.",
+
+            stats: [
+                "75 м.п. — Неон + Бахрома",
+                "200 м.п. — Нить для елей",
+                "100 м — Белт-Лайт"
+            ],
+
+            images: [
+                "img/work/work_17.jpg",
+                "img/work/work_18.jpg",
+                "img/work/work_19.jpg",
+                "img/work/work_20.jpg"
+            ]
+        }
+
+    ];
+
+
+
+    /* =====================================================
+       STATE
+    ===================================================== */
+
+    let filteredProjects = [...projects];
+
+    let currentProjectIndex = 0;
+
+    let currentImageIndex = 0;
+
+
+
+    /* =====================================================
+       HELPERS
+    ===================================================== */
+
+    function padNumber(number) {
+
+        return String(number).padStart(2, "0");
+
+    }
+
+
+
+    /* =====================================================
+       RENDER STATS
+    ===================================================== */
+
+    function renderStats(project) {
+
+        if (!projectStats) return;
+
+        projectStats.innerHTML = "";
+
+        project.stats.forEach(stat => {
+
+            const element =
+                document.createElement("div");
+
+            element.className =
+                "project-stat";
+
+            element.textContent =
+                stat;
+
+            projectStats.appendChild(element);
+
+        });
+
+    }
+
+
+
+    /* =====================================================
+       RENDER THUMBNAILS
+    ===================================================== */
+
+    function renderThumbnails(project) {
+
+        if (!projectThumbnails) return;
+
+        projectThumbnails.innerHTML = "";
+
+        project.images.forEach(
+            (image, index) => {
+
+                const button =
+                    document.createElement("button");
+
+                button.type = "button";
+
+                button.className =
+                    "project-thumbnail";
+
+                if (index === currentImageIndex) {
+                    button.classList.add("active");
+                }
+
+                button.setAttribute(
+                    "aria-label",
+                    `Фотография ${index + 1}`
+                );
+
+
+                const img =
+                    document.createElement("img");
+
+                img.src = image;
+
+                img.alt =
+                    `${project.title} — фото ${index + 1}`;
+
+                img.loading =
+                    index === 0
+                        ? "eager"
+                        : "lazy";
+
+                img.decoding =
+                    "async";
+
+
+                button.appendChild(img);
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        currentImageIndex = index;
+
+                        updateProjectImage();
+
+                    }
+                );
+
+
+                projectThumbnails.appendChild(button);
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       UPDATE MAIN IMAGE
+    ===================================================== */
+
+    function updateProjectImage(
+        animate = true
+    ) {
+
+        const project =
+            filteredProjects[currentProjectIndex];
+
+        if (!project) return;
+
+
+        const image =
+            project.images[currentImageIndex];
+
+
+
+        if (animate) {
+
+            projectMainImage.style.opacity = "0";
+
+            projectMainImage.style.transform =
+                "scale(1.025)";
+
+
+            setTimeout(() => {
+
+                projectMainImage.src =
+                    image;
+
+                projectMainImage.alt =
+                    `${project.title} — фото ${currentImageIndex + 1}`;
+
+                projectMainImage.style.opacity =
+                    "1";
+
+                projectMainImage.style.transform =
+                    "scale(1.001)";
+
+            }, 180);
+
+        } else {
+
+            projectMainImage.src =
+                image;
+
+            projectMainImage.alt =
+                `${project.title} — фото ${currentImageIndex + 1}`;
+
+        }
+
+
+
+        projectCurrentImage.textContent =
+            padNumber(currentImageIndex + 1);
+
+        projectTotalImages.textContent =
+            padNumber(project.images.length);
+
+
+
+        renderThumbnails(project);
+
+    }
+
+
+
+    /* =====================================================
+       UPDATE PROJECT
+    ===================================================== */
+
+    function renderProject(
+        animate = false
+    ) {
+
+        const project =
+            filteredProjects[currentProjectIndex];
+
+        if (!project) return;
+
+
+        currentImageIndex = 0;
+
+
+        if (animate) {
+
+            projectName.style.opacity = "0";
+            projectDescription.style.opacity = "0";
+            projectStats.style.opacity = "0";
+
+
+            setTimeout(() => {
+
+                projectName.textContent =
+                    project.title;
+
+                projectYear.textContent =
+                    project.year;
+
+                projectNumber.textContent =
+                    padNumber(
+                        projects.indexOf(project) + 1
+                    );
+
+                projectDescription.textContent =
+                    project.description;
+
+
+                renderStats(project);
+
+                projectName.style.opacity = "1";
+                projectDescription.style.opacity = "1";
+                projectStats.style.opacity = "1";
+
+
+                updateProjectImage(false);
+
+            }, 180);
+
+        } else {
+
+            projectName.textContent =
+                project.title;
+
+            projectYear.textContent =
+                project.year;
+
+            projectNumber.textContent =
+                padNumber(
+                    projects.indexOf(project) + 1
+                );
+
+            projectDescription.textContent =
+                project.description;
+
+
+            renderStats(project);
+
+            updateProjectImage(false);
+
+        }
+
+    }
+
+
+
+    /* =====================================================
+       PROJECT NAVIGATION
+    ===================================================== */
+
+    function nextProject() {
+
+        if (!filteredProjects.length) return;
+
+        currentProjectIndex =
+            (currentProjectIndex + 1) %
+            filteredProjects.length;
+
+        renderProject(true);
+
+    }
+
+
+
+    function previousProject() {
+
+        if (!filteredProjects.length) return;
+
+        currentProjectIndex =
+            (
+                currentProjectIndex -
+                1 +
+                filteredProjects.length
+            ) %
+            filteredProjects.length;
+
+        renderProject(true);
+
+    }
+
+
+
+    /* =====================================================
+       IMAGE NAVIGATION
+    ===================================================== */
+
+    function nextImage() {
+
+        const project =
+            filteredProjects[currentProjectIndex];
+
+        if (!project) return;
+
+
+        currentImageIndex =
+            (currentImageIndex + 1) %
+            project.images.length;
+
+        updateProjectImage();
+
+    }
+
+
+
+    function previousImage() {
+
+        const project =
+            filteredProjects[currentProjectIndex];
+
+        if (!project) return;
+
+
+        currentImageIndex =
+            (
+                currentImageIndex -
+                1 +
+                project.images.length
+            ) %
+            project.images.length;
+
+        updateProjectImage();
+
+    }
+
+
+
+    /* =====================================================
+       MAIN IMAGE BUTTON
+
+       Клик по большой фотографии открывает lightbox.
+    ===================================================== */
+
+    if (projectImageButton) {
+
+        projectImageButton.addEventListener(
+            "click",
+            () => {
+
+                openLightbox();
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       MAIN ARROWS
+    ===================================================== */
+
+    if (projectNext) {
+
+        projectNext.addEventListener(
+            "click",
+            event => {
+
+                event.stopPropagation();
+
+                nextProject();
+
+            }
+        );
+
+    }
+
+
+    if (projectPrev) {
+
+        projectPrev.addEventListener(
+            "click",
+            event => {
+
+                event.stopPropagation();
+
+                previousProject();
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       FILTERS
+    ===================================================== */
+
+    filters.forEach(filter => {
+
+        filter.addEventListener(
+            "click",
+            () => {
+
+                const category =
+                    filter.dataset.filter;
+
+
+                filters.forEach(item => {
+
+                    item.classList.remove(
+                        "active"
+                    );
+
+                });
+
+
+                filter.classList.add("active");
+
+
+                if (category === "all") {
+
+                    filteredProjects =
+                        [...projects];
+
+                } else {
+
+                    filteredProjects =
+                        projects.filter(project =>
+                            project.categories.includes(
+                                category
+                            )
+                        );
+
+                }
+
+
+                currentProjectIndex = 0;
+
+                currentImageIndex = 0;
+
+
+                if (projectsVisibleCount) {
+
+                    projectsVisibleCount.textContent =
+                        padNumber(
+                            filteredProjects.length
+                        );
+
+                }
+
+
+                renderProject(true);
+
+            }
+        );
+
+    });
+
+
+
+    /* =====================================================
+       LIGHTBOX ELEMENTS
+    ===================================================== */
+
+    const lightbox =
+        document.getElementById(
+            "projectLightbox"
+        );
+
+    const lightboxImage =
+        document.getElementById(
+            "lightboxImage"
+        );
+
+    const lightboxCurrent =
+        document.getElementById(
+            "lightboxCurrent"
+        );
+
+    const lightboxTotal =
+        document.getElementById(
+            "lightboxTotal"
+        );
+
+    const lightboxProjectName =
+        document.getElementById(
+            "lightboxProjectName"
+        );
+
+    const lightboxProjectYear =
+        document.getElementById(
+            "lightboxProjectYear"
+        );
+
+    const lightboxClose =
+        document.getElementById(
+            "projectLightboxClose"
+        );
+
+    const lightboxBackdrop =
+        document.getElementById(
+            "projectLightboxBackdrop"
+        );
+
+    const lightboxPrev =
+        document.getElementById(
+            "lightboxPrev"
+        );
+
+    const lightboxNext =
+        document.getElementById(
+            "lightboxNext"
+        );
+
+
+
+    /* =====================================================
+       UPDATE LIGHTBOX
+    ===================================================== */
+
+    function updateLightbox() {
+
+        const project =
+            filteredProjects[currentProjectIndex];
+
+        if (!project) return;
+
+
+        const image =
+            project.images[currentImageIndex];
+
+
+        lightboxImage.src =
+            image;
+
+        lightboxImage.alt =
+            `${project.title} — фото ${currentImageIndex + 1}`;
+
+
+        lightboxCurrent.textContent =
+            padNumber(currentImageIndex + 1);
+
+        lightboxTotal.textContent =
+            padNumber(project.images.length);
+
+
+        lightboxProjectName.textContent =
+            project.title;
+
+        lightboxProjectYear.textContent =
+            project.year;
+
+    }
+
+
+
+    /* =====================================================
+       OPEN LIGHTBOX
+    ===================================================== */
+
+    function openLightbox() {
+
+        if (!lightbox) return;
+
+
+        updateLightbox();
+
+
+        lightbox.classList.add("active");
+
+        lightbox.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+
+        document.body.style.overflow =
+            "hidden";
+
+    }
+
+
+
+    /* =====================================================
+       CLOSE LIGHTBOX
+    ===================================================== */
+
+    function closeLightbox() {
+
+        if (!lightbox) return;
+
+
+        lightbox.classList.remove(
+            "active"
+        );
+
+        lightbox.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+
+        document.body.style.overflow =
+            "";
+
+    }
+
+
+
+    /* =====================================================
+       LIGHTBOX IMAGE NAVIGATION
+    ===================================================== */
+
+    function lightboxNextImage() {
+
+        nextImage();
+
+        updateLightbox();
+
+    }
+
+
+
+    function lightboxPreviousImage() {
+
+        previousImage();
+
+        updateLightbox();
+
+    }
+
+
+
+    /* =====================================================
+       LIGHTBOX EVENTS
+    ===================================================== */
+
+    if (lightboxClose) {
+
+        lightboxClose.addEventListener(
+            "click",
+            closeLightbox
+        );
+
+    }
+
+
+    if (lightboxBackdrop) {
+
+        lightboxBackdrop.addEventListener(
+            "click",
+            closeLightbox
+        );
+
+    }
+
+
+    if (lightboxNext) {
+
+        lightboxNext.addEventListener(
+            "click",
+            lightboxNextImage
+        );
+
+    }
+
+
+    if (lightboxPrev) {
+
+        lightboxPrev.addEventListener(
+            "click",
+            lightboxPreviousImage
+        );
+
+    }
+
+
+
+    /* =====================================================
+       KEYBOARD
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                !lightbox ||
+                !lightbox.classList.contains("active")
+            ) {
+                return;
+            }
+
+
+            if (event.key === "Escape") {
+
+                closeLightbox();
+
+            }
+
+
+            if (
+                event.key === "ArrowRight"
+            ) {
+
+                lightboxNextImage();
+
+            }
+
+
+            if (
+                event.key === "ArrowLeft"
+            ) {
+
+                lightboxPreviousImage();
+
+            }
+
+        }
+    );
+
+
+
+    /* =====================================================
+       TOUCH SWIPE
+    ===================================================== */
+
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+
+    if (lightbox) {
+
+        lightbox.addEventListener(
+            "touchstart",
+            event => {
+
+                const touch =
+                    event.touches[0];
+
+                touchStartX =
+                    touch.clientX;
+
+                touchStartY =
+                    touch.clientY;
+
+            },
+            { passive: true }
+        );
+
+
+        lightbox.addEventListener(
+            "touchend",
+            event => {
+
+                const touch =
+                    event.changedTouches[0];
+
+                const deltaX =
+                    touch.clientX -
+                    touchStartX;
+
+                const deltaY =
+                    touch.clientY -
+                    touchStartY;
+
+
+                if (
+                    Math.abs(deltaX) < 50 ||
+                    Math.abs(deltaX) < Math.abs(deltaY)
+                ) {
+                    return;
+                }
+
+
+                if (deltaX < 0) {
+
+                    lightboxNextImage();
+
+                } else {
+
+                    lightboxPreviousImage();
+
+                }
+
+            },
+            { passive: true }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       PRELOAD NEXT IMAGE
+    ===================================================== */
+
+    function preloadNextImage() {
+
+        const project =
+            filteredProjects[currentProjectIndex];
+
+        if (!project) return;
+
+
+        const nextIndex =
+            (
+                currentImageIndex + 1
+            ) %
+            project.images.length;
+
+
+        const image =
+            new Image();
+
+        image.src =
+            project.images[nextIndex];
+
+    }
+
+
+
+    /* =====================================================
+       PRELOAD AFTER IMAGE CHANGE
+    ===================================================== */
+
+    const originalUpdateProjectImage =
+        updateProjectImage;
+
+
+    /* =====================================================
+       INITIAL RENDER
+    ===================================================== */
+
+    renderProject(false);
+
+
+    if (projectsVisibleCount) {
+
+        projectsVisibleCount.textContent =
+            padNumber(
+                filteredProjects.length
+            );
+
+    }
+
+});
+
+
+
+
+
