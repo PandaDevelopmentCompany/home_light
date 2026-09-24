@@ -396,12 +396,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                                     required
                                 >
 
-                                <span>
-                                    ${escapeHTML(
-                                        lead.personalConsent ||
-                                        "Я даю согласие на обработку моих персональных данных"
-                                    )}
-                                </span>
+                                <span> Я даю согласие на обработку <a href="privacy.html" target="_blank" rel="noopener" > <u>персональных данных</u> </a> </span>
 
                             </label>
 
