@@ -8622,3 +8622,205 @@ button {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   MOBILE CALLBACK TAB
+========================================================= */
+
+.mobile-callback-tab {
+    display: none;
+}
+
+
+@media (max-width: 800px) {
+
+    .mobile-callback-tab {
+        position: fixed;
+
+        top: 40%;
+        right: 0;
+
+        z-index: 850;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 38px;
+        height: 158px;
+
+        padding: 0;
+
+        border: 1px solid rgba(245, 200, 117, .28);
+        border-right: 0;
+
+        border-radius: 14px 0 0 14px;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(19, 21, 20, .94),
+                rgba(8, 9, 9, .97)
+            );
+
+        color: #fff;
+
+        box-shadow:
+            -8px 0 28px rgba(0, 0, 0, .32),
+            -1px 0 18px rgba(245, 200, 117, .04);
+
+        transform: translateY(-50%);
+
+        cursor: pointer;
+
+        -webkit-tap-highlight-color: transparent;
+
+        transition:
+            width .3s ease,
+            border-color .3s ease,
+            box-shadow .3s ease,
+            background .3s ease;
+    }
+
+
+    /* тонкая светящаяся линия */
+
+    .mobile-callback-tab-line {
+        position: absolute;
+
+        left: -1px;
+        top: 14px;
+        bottom: 14px;
+
+        width: 1px;
+
+        background:
+            linear-gradient(
+                180deg,
+                transparent 0%,
+                rgba(245, 200, 117, .12) 18%,
+                #f5c875 50%,
+                rgba(245, 200, 117, .12) 82%,
+                transparent 100%
+            );
+
+        opacity: .8;
+
+        box-shadow:
+            0 0 8px rgba(245, 200, 117, .28);
+    }
+
+
+    /* текст */
+
+    .mobile-callback-tab-text {
+        display: block;
+
+        font-family: inherit;
+        font-size: 8px;
+        font-weight: 700;
+        line-height: 1;
+
+        letter-spacing: .18em;
+
+        white-space: nowrap;
+
+        color: rgba(255, 255, 255, .72);
+
+        transform: rotate(-90deg);
+
+        transition:
+            color .3s ease,
+            letter-spacing .3s ease;
+    }
+
+
+    /* маленькая световая точка */
+
+    .mobile-callback-tab-dot {
+        position: absolute;
+
+        bottom: 13px;
+        left: 50%;
+
+        width: 4px;
+        height: 4px;
+
+        margin-left: -2px;
+
+        border-radius: 50%;
+
+        background: #f5c875;
+
+        box-shadow:
+            0 0 6px rgba(245, 200, 117, .75),
+            0 0 14px rgba(245, 200, 117, .32);
+
+        animation: mobileCallbackPulse 2.4s ease-in-out infinite;
+    }
+
+
+    /* hover / tap */
+
+    .mobile-callback-tab:hover,
+    .mobile-callback-tab:focus-visible {
+        width: 42px;
+
+        border-color: rgba(245, 200, 117, .55);
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(25, 24, 21, .97),
+                rgba(10, 10, 9, .98)
+            );
+
+        box-shadow:
+            -10px 0 32px rgba(0, 0, 0, .38),
+            -1px 0 22px rgba(245, 200, 117, .10);
+
+        outline: none;
+    }
+
+
+    .mobile-callback-tab:hover .mobile-callback-tab-text,
+    .mobile-callback-tab:focus-visible .mobile-callback-tab-text {
+        color: #fff;
+        letter-spacing: .21em;
+    }
+
+
+    /* когда открыто мобильное меню —
+       кнопка не мешает меню */
+
+    body.menu-open .mobile-callback-tab {
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(12px, -50%);
+    }
+
+
+    @keyframes mobileCallbackPulse {
+
+        0%,
+        100% {
+            opacity: .45;
+            transform: scale(.8);
+        }
+
+        50% {
+            opacity: 1;
+            transform: scale(1.35);
+        }
+    }
+}
