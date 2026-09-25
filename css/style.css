@@ -8127,3 +8127,181 @@ button {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   CALLBACK MODAL — MOBILE FIX
+========================================================= */
+
+@media (max-width: 800px) {
+
+    /* -----------------------------------------------------
+       CONSENT CHECKBOX
+    ----------------------------------------------------- */
+
+    .callback-consent input {
+        appearance: none;
+        -webkit-appearance: none;
+
+        position: relative;
+
+        width: 17px;
+        height: 17px;
+
+        flex: 0 0 17px;
+
+        margin: 1px 0 0;
+
+        border: 1px solid rgba(255, 255, 255, .28);
+
+        border-radius: 2px;
+
+        background: rgba(255, 255, 255, .035);
+
+        cursor: pointer;
+
+        transition:
+            background .2s ease,
+            border-color .2s ease,
+            box-shadow .2s ease;
+    }
+
+
+    .callback-consent input:checked {
+        border-color: #fff;
+
+        background: #fff;
+
+        box-shadow:
+            0 0 12px rgba(255, 255, 255, .08);
+    }
+
+
+    .callback-consent input:checked::after {
+        content: "";
+
+        position: absolute;
+
+        left: 4px;
+        top: 1px;
+
+        width: 5px;
+        height: 9px;
+
+        border-right: 2px solid #111;
+        border-bottom: 2px solid #111;
+
+        transform: rotate(45deg);
+    }
+
+
+    /* -----------------------------------------------------
+       SUBMIT BUTTON
+    ----------------------------------------------------- */
+
+    .callback-submit {
+        display: flex;
+
+        align-items: center;
+        justify-content: space-between;
+
+        width: 100%;
+
+        padding:
+            0 21px;
+
+        min-height: 58px;
+
+        font-size: 13px;
+    }
+
+
+    /* Текст кнопки ВСЕГДА остаётся видимым */
+
+    .callback-submit > span:first-child {
+        display: block;
+
+        flex: 1 1 auto;
+
+        min-width: 0;
+
+        font-size: 13px;
+        line-height: 1;
+
+        color: #090a09;
+
+        white-space: nowrap;
+
+        opacity: 1;
+
+        visibility: visible;
+    }
+
+
+    /* Круг со стрелкой */
+
+    .callback-submit > span:last-child {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        flex: 0 0 38px;
+
+        width: 38px;
+        height: 38px;
+
+        margin-left: 15px;
+
+        border-radius: 50%;
+
+        background: #111;
+
+        font-size: 0;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: none;
+    }
+
+
+    /* Сама стрелка */
+
+    .callback-submit > span:last-child::after {
+        content: "";
+
+        display: block;
+
+        width: 16px;
+        height: 16px;
+
+        background-image:
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 19L19 5M9 5h10v10' fill='none' stroke='%23ffffff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+
+
+    /* Не даём hover-состоянию сдвигать отдельные элементы */
+
+    .callback-submit:hover > span:first-child {
+        transform: none;
+    }
+
+    .callback-submit:hover > span:last-child {
+        transform: none;
+    }
+
+}
