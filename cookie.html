@@ -1,0 +1,1245 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Политика использования cookie-файлов — HOME LIGHT</title>
+
+    <meta name="description"
+          content="Политика использования файлов cookie на сайте HOME LIGHT.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Manrope,
+                Arial,
+                sans-serif;
+
+            background: #080909;
+            color: #f4f4f0;
+
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .site-header {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+            right: 0;
+
+            z-index: 1000;
+
+            padding: 20px 32px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(8, 9, 9, 0.96),
+                    rgba(8, 9, 9, 0.78),
+                    transparent
+                );
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+
+            max-width: 1540px;
+
+            margin: 0 auto;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .header-logo {
+
+            display: flex;
+            align-items: center;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .header-logo-mark {
+
+            width: 8px;
+            height: 8px;
+
+            margin-right: 10px;
+
+            border-radius: 50%;
+
+            background: #fff;
+
+            box-shadow:
+                0 0 8px rgba(255, 255, 255, 0.9),
+                0 0 22px rgba(255, 190, 100, 0.55);
+        }
+
+        .back-link {
+
+            display: inline-flex;
+
+            align-items: center;
+            gap: 12px;
+
+            font-size: 10px;
+            font-weight: 600;
+
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+
+            color: rgba(255,255,255,0.72);
+
+            transition:
+                color .3s ease,
+                transform .3s ease;
+        }
+
+        .back-link:hover {
+
+            color: #fff;
+
+            transform: translateX(-3px);
+        }
+
+        .back-arrow {
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            width: 34px;
+            height: 34px;
+
+            border-radius: 50%;
+
+            background: #fff;
+            color: #111;
+
+            font-size: 16px;
+
+            transition:
+                transform .3s ease,
+                box-shadow .3s ease;
+        }
+
+        .back-link:hover .back-arrow {
+
+            transform: translateX(-3px);
+
+            box-shadow:
+                0 0 14px rgba(255, 190, 100, 0.25);
+        }
+
+
+        /* =========================================================
+           PAGE
+        ========================================================= */
+
+        .privacy-page {
+
+            position: relative;
+
+            min-height: 100vh;
+
+            padding:
+                150px
+                24px
+                100px;
+
+            overflow: hidden;
+        }
+
+        .privacy-glow {
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            top: 80px;
+            right: -220px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255, 170, 70, 0.12),
+                    transparent 68%
+                );
+
+            pointer-events: none;
+        }
+
+        .privacy-grid {
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: 0.035;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,1) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,1) 1px,
+                    transparent 1px
+                );
+
+            background-size: 80px 80px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 85%
+                );
+
+            -webkit-mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 85%
+                );
+        }
+
+        .privacy-container {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: min(980px, 100%);
+
+            margin: 0 auto;
+        }
+
+
+        /* =========================================================
+           INTRO
+        ========================================================= */
+
+        .privacy-label {
+
+            display: flex;
+
+            align-items: center;
+            gap: 12px;
+
+            margin-bottom: 28px;
+
+            color: rgba(255,255,255,0.48);
+
+            font-size: 9px;
+            font-weight: 600;
+
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .privacy-label-line {
+
+            width: 34px;
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(255,190,100,0.9),
+                    transparent
+                );
+        }
+
+        .privacy-title {
+
+            max-width: 850px;
+
+            font-size:
+                clamp(42px, 7vw, 86px);
+
+            line-height: 0.98;
+
+            font-weight: 500;
+
+            letter-spacing: -0.045em;
+
+            margin-bottom: 32px;
+        }
+
+        .privacy-title span {
+
+            color: rgba(255,255,255,0.42);
+        }
+
+        .privacy-date {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            padding: 9px 14px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.1);
+
+            border-radius: 100px;
+
+            color: rgba(255,255,255,0.55);
+
+            font-size: 9px;
+
+            letter-spacing: 0.08em;
+
+            text-transform: uppercase;
+
+            margin-bottom: 70px;
+        }
+
+
+        /* =========================================================
+           CONTENT
+        ========================================================= */
+
+        .privacy-content {
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.1);
+        }
+
+        .privacy-section {
+
+            padding:
+                42px
+                0;
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.08);
+        }
+
+        .privacy-section:last-child {
+            border-bottom: none;
+        }
+
+        .privacy-section-head {
+
+            display: grid;
+
+            grid-template-columns: 100px 1fr;
+
+            gap: 30px;
+
+            margin-bottom: 26px;
+        }
+
+        .privacy-number {
+
+            color:
+                rgba(255,190,100,0.75);
+
+            font-size: 10px;
+
+            letter-spacing: 0.12em;
+        }
+
+        .privacy-section h2 {
+
+            font-size:
+                clamp(20px, 3vw, 30px);
+
+            line-height: 1.2;
+
+            font-weight: 600;
+
+            letter-spacing: -0.025em;
+        }
+
+        .privacy-section-body {
+
+            margin-left: 130px;
+
+            max-width: 760px;
+
+            color:
+                rgba(255,255,255,0.68);
+
+            font-size: 14px;
+
+            line-height: 1.85;
+        }
+
+        .privacy-section-body p {
+
+            margin-bottom: 18px;
+        }
+
+        .privacy-section-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .privacy-section-body ul {
+
+            margin:
+                14px
+                0
+                20px
+                22px;
+
+            padding: 0;
+        }
+
+        .privacy-section-body li {
+
+            margin-bottom: 9px;
+
+            padding-left: 6px;
+        }
+
+        .privacy-section-body strong {
+
+            color: #fff;
+
+            font-weight: 600;
+        }
+
+
+        /* =========================================================
+           COOKIE TYPES
+        ========================================================= */
+
+        .cookie-list {
+
+            margin-top: 28px;
+
+            display: grid;
+
+            gap: 12px;
+        }
+
+        .cookie-item {
+
+            padding: 22px 24px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            background:
+                rgba(255,255,255,0.025);
+        }
+
+        .cookie-item-title {
+
+            margin-bottom: 7px;
+
+            color: #fff;
+
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+        .cookie-item-text {
+
+            color:
+                rgba(255,255,255,0.52);
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           CONTACTS
+        ========================================================= */
+
+        .privacy-contacts {
+
+            margin-top: 30px;
+
+            padding: 28px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.09);
+
+            background:
+                rgba(255,255,255,0.025);
+
+            border-radius: 2px;
+        }
+
+        .privacy-contact-label {
+
+            margin-bottom: 8px;
+
+            color:
+                rgba(255,255,255,0.38);
+
+            font-size: 8px;
+
+            letter-spacing: 0.15em;
+
+            text-transform: uppercase;
+        }
+
+        .privacy-contact-value {
+
+            color: #fff;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .privacy-footer {
+
+            width: min(980px, 100%);
+
+            margin:
+                0 auto;
+
+            padding:
+                40px
+                0
+                10px;
+
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 30px;
+
+            color:
+                rgba(255,255,255,0.35);
+
+            font-size: 9px;
+
+            letter-spacing: 0.08em;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 700px) {
+
+            .site-header {
+
+                padding:
+                    16px
+                    18px;
+            }
+
+            .header-logo {
+
+                font-size: 10px;
+            }
+
+            .privacy-page {
+
+                padding:
+                    125px
+                    18px
+                    60px;
+            }
+
+            .privacy-title {
+
+                font-size:
+                    clamp(40px, 13vw, 62px);
+
+                line-height: 0.98;
+            }
+
+            .privacy-date {
+
+                margin-bottom: 45px;
+            }
+
+            .privacy-section {
+
+                padding:
+                    32px
+                    0;
+            }
+
+            .privacy-section-head {
+
+                display: block;
+
+                margin-bottom: 20px;
+            }
+
+            .privacy-number {
+
+                display: block;
+
+                margin-bottom: 12px;
+            }
+
+            .privacy-section-body {
+
+                margin-left: 0;
+
+                font-size: 13px;
+
+                line-height: 1.8;
+            }
+
+            .cookie-item {
+
+                padding: 19px;
+            }
+
+            .privacy-contacts {
+
+                padding: 22px;
+            }
+
+            .privacy-footer {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 10px;
+            }
+
+            .back-link {
+
+                font-size: 8px;
+            }
+
+            .back-arrow {
+
+                width: 30px;
+                height: 30px;
+
+                font-size: 14px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<header class="site-header">
+
+    <div class="header-inner">
+
+        <a href="/" class="header-logo">
+
+            <span class="header-logo-mark"></span>
+
+            HOME LIGHT
+
+        </a>
+
+
+        <a href="/" class="back-link">
+
+            <span class="back-arrow">←</span>
+
+            На главную
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<main class="privacy-page">
+
+    <div class="privacy-grid"></div>
+
+    <div class="privacy-glow"></div>
+
+
+    <div class="privacy-container">
+
+
+        <div class="privacy-label">
+
+            <span class="privacy-label-line"></span>
+
+            Документ / 02
+
+        </div>
+
+
+        <h1 class="privacy-title">
+
+            Политика использования
+
+            <span>cookie-файлов</span>
+
+        </h1>
+
+
+        <div class="privacy-date">
+
+            Дата утверждения: [ДАТА УТВЕРЖДЕНИЯ]
+
+        </div>
+
+
+
+        <div class="privacy-content">
+
+
+            <!-- =====================================================
+                 1
+            ====================================================== -->
+
+            <section class="privacy-section">
+
+                <div class="privacy-section-head">
+
+                    <div class="privacy-number">
+                        01 / 07
+                    </div>
+
+                    <h2>
+                        Общие положения
+                    </h2>
+
+                </div>
+
+
+                <div class="privacy-section-body">
+
+                    <p>
+                        Настоящая Политика использования cookie-файлов
+                        (далее — Политика) определяет порядок использования
+                        файлов cookie и аналогичных технологий на сайте
+                        <strong>[ДОМЕН САЙТА]</strong>
+                        (далее — Сайт).
+                    </p>
+
+                    <p>
+                        Сайт принадлежит
+                        <strong>Индивидуальному предпринимателю
+                        Малышевой Екатерине Дмитриевне</strong>,
+                        ИНН: <strong>[ИНН]</strong>,
+                        ОГРНИП: <strong>[ОГРНИП]</strong>
+                        (далее — Оператор).
+                    </p>
+
+                    <p>
+                        Настоящая Политика является частью документов,
+                        регулирующих использование Сайта, и применяется
+                        совместно с Политикой конфиденциальности
+                        и иными документами, размещёнными на Сайте.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 2
+            ====================================================== -->
+
+            <section class="privacy-section">
+
+                <div class="privacy-section-head">
+
+                    <div class="privacy-number">
+                        02 / 07
+                    </div>
+
+                    <h2>
+                        Что такое cookie
+                    </h2>
+
+                </div>
+
+
+                <div class="privacy-section-body">
+
+                    <p>
+                        Cookie — это небольшие текстовые файлы, которые
+                        сохраняются на устройстве Пользователя при посещении
+                        сайта. Они позволяют сайту распознавать устройство
+                        Пользователя и сохранять определённую информацию
+                        о его действиях и настройках.
+                    </p>
+
+                    <p>
+                        Помимо cookie Сайт может использовать аналогичные
+                        технологии, позволяющие получать техническую
+                        информацию о взаимодействии Пользователя с Сайтом.
+                    </p>
+
+                    <p>
+                        Cookie сами по себе не являются программами
+                        и не позволяют Оператору получить доступ ко всем
+                        файлам или данным, хранящимся на устройстве Пользователя.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 3
+            ====================================================== -->
+
+            <section class="privacy-section">
+
+                <div class="privacy-section-head">
+
+                    <div class="privacy-number">
+                        03 / 07
+                    </div>
+
+                    <h2>
+                        Какие cookie могут использоваться
+                    </h2>
+
+                </div>
+
+
+                <div class="privacy-section-body">
+
+                    <p>
+                        В зависимости от назначения на Сайте могут
+                        использоваться следующие категории файлов cookie:
+                    </p>
+
+
+                    <div class="cookie-list">
+
+                        <div class="cookie-item">
+
+                            <div class="cookie-item-title">
+                                Необходимые cookie
+                            </div>
+
+                            <div class="cookie-item-text">
+                                Используются для обеспечения корректной
+                                работы основных функций Сайта, навигации,
+                                отправки форм и других технических операций.
+                            </div>
+
+                        </div>
+
+
+                        <div class="cookie-item">
+
+                            <div class="cookie-item-title">
+                                Функциональные cookie
+                            </div>
+
+                            <div class="cookie-item-text">
+                                Могут использоваться для сохранения
+                                выбранных Пользователем настроек и обеспечения
+                                удобства повторного посещения Сайта.
+                            </div>
+
+                        </div>
+
+
+                        <div class="cookie-item">
+
+                            <div class="cookie-item-title">
+                                Аналитические cookie
+                            </div>
+
+                            <div class="cookie-item-text">
+                                Могут использоваться для получения
+                                обезличенной статистической информации
+                                о посещаемости Сайта, источниках переходов,
+                                просмотренных страницах и взаимодействии
+                                Пользователей с Сайтом.
+                            </div>
+
+                        </div>
+
+
+                        <div class="cookie-item">
+
+                            <div class="cookie-item-title">
+                                Сторонние cookie
+                            </div>
+
+                            <div class="cookie-item-text">
+                                Могут устанавливаться сторонними сервисами,
+                                подключёнными к Сайту, если такие сервисы
+                                используются Оператором.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 4
+            ====================================================== -->
+
+            <section class="privacy-section">
+
+                <div class="privacy-section-head">
+
+                    <div class="privacy-number">
+                        04 / 07
+                    </div>
+
+                    <h2>
+                        Для чего используются cookie
+                    </h2>
+
+                </div>
+
+
+                <div class="privacy-section-body">
+
+                    <p>
+                        Использование файлов cookie и аналогичных технологий
+                        может осуществляться в следующих целях:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            обеспечение корректной работы и безопасности Сайта;
+                        </li>
+
+                        <li>
+                            сохранение технических параметров и настроек;
+                        </li>
+
+                        <li>
+                            обеспечение работы интерактивных элементов
+                            и форм обратной связи;
+                        </li>
+
+                        <li>
+                            анализ посещаемости и поведения Пользователей
+                            в обезличенном виде;
+                        </li>
+
+                        <li>
+                            выявление технических ошибок и улучшение
+                            производительности Сайта;
+                        </li>
+
+                        <li>
+                            улучшение структуры, содержания и удобства
+                            использования Сайта.
+                        </li>
+
+                    </ul>
+
+                    <p>
+                        Конкретный набор используемых cookie зависит
+                        от технической конфигурации Сайта и подключённых
+                        к нему сервисов.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 5
+            ====================================================== -->
+
+            <section class="privacy-section">
+
+                <div class="privacy-section-head">
+
+                    <div class="privacy-number">
+                        05 / 07
+                    </div>
+
+                    <h2>
+                        Управление файлами cookie
+                    </h2>
+
+                </div>
+
+
+                <div class="privacy-section-body">
+
+                    <p>
+                        Пользователь может самостоятельно управлять
+                        файлами cookie посредством настроек используемого
+                        браузера.
+                    </p>
+
+                    <p>
+                        Большинство браузеров позволяет просматривать,
+                        удалять и блокировать cookie, а также устанавливать
+                        запрет на сохранение отдельных категорий файлов.
+                    </p>
+
+                    <p>
+                        При отключении или ограничении cookie некоторые
+                        функции Сайта могут стать недоступными либо
+                        работать некорректно.
+                    </p>
+
+                    <p>
+                        Способ управления cookie зависит от конкретного
+                        браузера и его версии. Пользователь может обратиться
+                        к справочным материалам своего браузера для получения
+                        подробной информации о соответствующих настройках.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 6
+            ====================================================== -->
+
+            <section class="privacy-section">
+
+                <div class="privacy-section-head">
+
+                    <div class="privacy-number">
+                        06 / 07
+                    </div>
+
+                    <h2>
+                        Персональные данные
+                    </h2>
+
+                </div>
+
+
+                <div class="privacy-section-body">
+
+                    <p>
+                        Некоторые технические сведения, получаемые
+                        посредством cookie и аналогичных технологий,
+                        в определённых обстоятельствах могут относиться
+                        к информации, позволяющей прямо или косвенно
+                        идентифицировать Пользователя.
+                    </p>
+
+                    <p>
+                        Обработка персональных данных осуществляется
+                        в соответствии с законодательством Российской Федерации
+                        и положениями Политики конфиденциальности,
+                        размещённой на Сайте.
+                    </p>
+
+                    <p>
+                        Оператор не использует файлы cookie для получения
+                        доступа к содержимому файлов, хранящихся
+                        на устройстве Пользователя.
+                    </p>
+
+                    <p>
+                        При использовании сторонних сервисов обработка
+                        информации такими сервисами может осуществляться
+                        в соответствии с их собственными правилами
+                        и политиками конфиденциальности.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================================
+                 7
+            ====================================================== -->
+
+            <section class="privacy-section">
+
+                <div class="privacy-section-head">
+
+                    <div class="privacy-number">
+                        07 / 07
+                    </div>
+
+                    <h2>
+                        Контактная информация
+                    </h2>
+
+                </div>
+
+
+                <div class="privacy-section-body">
+
+                    <p>
+                        По вопросам использования файлов cookie,
+                        обработки технической информации и реализации
+                        прав Пользователь может обратиться к Оператору
+                        по указанным ниже реквизитам.
+                    </p>
+
+
+                    <div class="privacy-contacts">
+
+                        <div class="privacy-contact-label">
+                            Оператор
+                        </div>
+
+                        <div class="privacy-contact-value">
+                            ИП Малышева Екатерина Дмитриевна
+                        </div>
+
+
+                        <br>
+
+
+                        <div class="privacy-contact-label">
+                            ИНН
+                        </div>
+
+                        <div class="privacy-contact-value">
+                            [ИНН]
+                        </div>
+
+
+                        <br>
+
+
+                        <div class="privacy-contact-label">
+                            ОГРНИП
+                        </div>
+
+                        <div class="privacy-contact-value">
+                            [ОГРНИП]
+                        </div>
+
+
+                        <br>
+
+
+                        <div class="privacy-contact-label">
+                            Электронная почта
+                        </div>
+
+                        <div class="privacy-contact-value">
+                            [EMAIL]
+                        </div>
+
+
+                        <br>
+
+
+                        <div class="privacy-contact-label">
+                            Сайт
+                        </div>
+
+                        <div class="privacy-contact-value">
+                            [ДОМЕН САЙТА]
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<footer class="privacy-footer">
+
+    <span>
+        HOME LIGHT
+    </span>
+
+    <span>
+        Политика использования cookie-файлов
+    </span>
+
+</footer>
+
+
+</body>
+</html>
