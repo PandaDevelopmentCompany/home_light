@@ -5675,3 +5675,2407 @@ button {
     }
 
 }
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process-section {
+    position: relative;
+
+    padding: 150px 0 125px;
+
+    background:
+        radial-gradient(
+            circle at 18% 58%,
+            rgba(245, 200, 117, 0.035),
+            transparent 30%
+        ),
+        #080909;
+
+    overflow: hidden;
+}
+
+
+/* subtle grid */
+
+.process-section::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        );
+
+    background-size: 80px 80px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            transparent,
+            black 20%,
+            black 80%,
+            transparent
+        );
+
+    pointer-events: none;
+}
+
+
+.process-container {
+    position: relative;
+    z-index: 1;
+
+    width: min(1400px, calc(100% - 64px));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.process-header {
+    display: grid;
+
+    grid-template-columns: 180px minmax(0, 1fr);
+
+    gap: 70px;
+
+    margin-bottom: 100px;
+}
+
+
+.process-kicker {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 18px;
+
+    padding-top: 15px;
+}
+
+
+.process-kicker span {
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 0.16em;
+
+    color: rgba(255, 255, 255, 0.46);
+
+    white-space: nowrap;
+}
+
+
+.process-kicker i {
+    display: block;
+
+    width: 34px;
+    height: 1px;
+
+    margin-top: 6px;
+
+    background: rgba(245, 200, 117, 0.65);
+}
+
+
+.process-heading {
+    max-width: 1050px;
+}
+
+
+.process-heading h2 {
+    margin: 0;
+
+    font-size: clamp(52px, 6.3vw, 92px);
+
+    line-height: 0.96;
+
+    letter-spacing: -0.055em;
+
+    font-weight: 500;
+}
+
+
+.process-heading h2 span {
+    color: rgba(255, 255, 255, 0.36);
+}
+
+
+.process-heading p {
+    max-width: 570px;
+
+    margin: 38px 0 0;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color: rgba(255, 255, 255, 0.48);
+}
+
+
+/* =========================================================
+   PATH
+========================================================= */
+
+.process-path {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    gap: 0;
+
+    min-height: 570px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================================
+   LINE
+========================================================= */
+
+.process-line {
+    position: absolute;
+
+    z-index: 1;
+
+    left: 6%;
+    right: 6%;
+
+    top: 198px;
+
+    height: 1px;
+
+    pointer-events: none;
+}
+
+
+.process-line-base {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.05),
+            rgba(255, 255, 255, 0.17),
+            rgba(255, 255, 255, 0.05)
+        );
+}
+
+
+.process-line-progress {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 0;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(245, 200, 117, 0.8),
+            #f5c875
+        );
+
+    box-shadow:
+        0 0 12px rgba(245, 200, 117, 0.45),
+        0 0 30px rgba(245, 200, 117, 0.12);
+
+    transition:
+        width 2.2s cubic-bezier(.16, 1, .3, 1);
+}
+
+
+.process-line-light {
+    position: absolute;
+
+    top: 50%;
+
+    left: 0;
+
+    width: 4px;
+    height: 4px;
+
+    margin-top: -2px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    box-shadow:
+        0 0 8px #fff,
+        0 0 18px #f5c875,
+        0 0 38px rgba(245, 200, 117, 0.7);
+
+    opacity: 0;
+
+    transition: opacity 0.4s ease;
+}
+
+
+.process-section.is-visible .process-line-progress {
+    width: 100%;
+}
+
+
+.process-section.is-visible .process-line-light {
+    opacity: 1;
+
+    animation:
+        processLightMove 2.2s
+        cubic-bezier(.16, 1, .3, 1)
+        forwards;
+}
+
+
+@keyframes processLightMove {
+
+    0% {
+        left: 0;
+        opacity: 0;
+    }
+
+    8% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================================================
+   STEP
+========================================================= */
+
+.process-step {
+    position: relative;
+
+    z-index: 2;
+
+    min-width: 0;
+
+    padding:
+        32px
+        26px
+        55px;
+
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.9s cubic-bezier(.16, 1, .3, 1);
+}
+
+
+.process-section.is-visible .process-step {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+.process-section.is-visible .process-step:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+
+.process-section.is-visible .process-step:nth-child(3) {
+    transition-delay: 0.22s;
+}
+
+
+.process-section.is-visible .process-step:nth-child(4) {
+    transition-delay: 0.34s;
+}
+
+
+.process-section.is-visible .process-step:nth-child(5) {
+    transition-delay: 0.46s;
+}
+
+
+.process-section.is-visible .process-step:nth-child(6) {
+    transition-delay: 0.58s;
+}
+
+
+/* =========================================================
+   STEP TOP
+========================================================= */
+
+.process-step-top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 111px;
+}
+
+
+.process-step-number {
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.14em;
+
+    color: rgba(245, 200, 117, 0.85);
+}
+
+
+.process-step-status {
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.17em;
+
+    color: rgba(255, 255, 255, 0.19);
+}
+
+
+/* =========================================================
+   NODE
+========================================================= */
+
+.process-node {
+    position: absolute;
+
+    z-index: 4;
+
+    top: 191px;
+    left: 26px;
+
+    width: 15px;
+    height: 15px;
+
+    border: 1px solid rgba(255, 255, 255, 0.28);
+
+    border-radius: 50%;
+
+    background: #080909;
+
+    transition:
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        transform 0.5s cubic-bezier(.16, 1, .3, 1);
+}
+
+
+.process-node span {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 4px;
+    height: 4px;
+
+    margin:
+        -2px
+        0
+        0
+        -2px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.25);
+
+    transition:
+        background 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+.process-step:hover .process-node,
+.process-step.active .process-node {
+    border-color: #f5c875;
+
+    box-shadow:
+        0 0 0 5px rgba(245, 200, 117, 0.045),
+        0 0 25px rgba(245, 200, 117, 0.12);
+
+    transform: scale(1.1);
+}
+
+
+.process-step:hover .process-node span,
+.process-step.active .process-node span {
+    background: #f5c875;
+
+    box-shadow:
+        0 0 8px #f5c875,
+        0 0 18px rgba(245, 200, 117, 0.65);
+}
+
+
+.process-node-final {
+    border-color: rgba(245, 200, 117, 0.5);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.process-step-content {
+    max-width: 220px;
+}
+
+
+.process-step-label {
+    margin-bottom: 15px;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.16em;
+
+    color: rgba(255, 255, 255, 0.3);
+}
+
+
+.process-step h3 {
+    margin: 0;
+
+    font-size: clamp(22px, 2vw, 29px);
+
+    line-height: 1.08;
+
+    letter-spacing: -0.035em;
+
+    font-weight: 500;
+}
+
+
+.process-step h3 span {
+    color: rgba(255, 255, 255, 0.38);
+}
+
+
+.process-step p {
+    margin: 22px 0 0;
+
+    font-size: 12px;
+
+    line-height: 1.65;
+
+    color: rgba(255, 255, 255, 0.4);
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.process-step {
+    transition:
+        opacity 0.8s ease,
+        transform 0.9s cubic-bezier(.16, 1, .3, 1),
+        background 0.45s ease;
+}
+
+
+.process-step:hover {
+    background:
+        radial-gradient(
+            circle at 50% 32%,
+            rgba(245, 200, 117, 0.045),
+            transparent 40%
+        );
+}
+
+
+.process-step:hover .process-step-label {
+    color: rgba(245, 200, 117, 0.7);
+}
+
+
+.process-step:hover .process-step-content p {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.process-bottom {
+    display: grid;
+
+    grid-template-columns:
+        auto
+        minmax(50px, 1fr)
+        auto;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding-top: 25px;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.16em;
+
+    color: rgba(255, 255, 255, 0.25);
+}
+
+
+.process-bottom-line {
+    position: relative;
+
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    overflow: hidden;
+}
+
+
+.process-bottom-line span {
+    position: absolute;
+
+    top: 0;
+    left: -20%;
+
+    width: 20%;
+    height: 1px;
+
+    background: #f5c875;
+
+    box-shadow:
+        0 0 12px rgba(245, 200, 117, 0.65);
+
+    opacity: 0;
+}
+
+
+.process-section.is-visible .process-bottom-line span {
+    opacity: 1;
+
+    animation:
+        processBottomSweep
+        3.5s
+        linear
+        infinite;
+}
+
+
+@keyframes processBottomSweep {
+
+    0% {
+        left: -20%;
+    }
+
+    100% {
+        left: 120%;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .process-header {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+        margin-bottom: 65px;
+    }
+
+
+    .process-path {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        min-height: auto;
+
+        padding: 0;
+    }
+
+
+    .process-line {
+        display: none;
+    }
+
+
+    .process-step {
+        min-height: 360px;
+
+        border-right:
+            1px solid rgba(255, 255, 255, 0.08);
+
+        border-bottom:
+            1px solid rgba(255, 255, 255, 0.08);
+    }
+
+
+    .process-step:nth-child(2n) {
+        border-right: 0;
+    }
+
+
+    .process-step-top {
+        margin-bottom: 80px;
+    }
+
+
+    .process-node {
+        top: 157px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .process-section {
+        padding: 100px 0 80px;
+    }
+
+
+    .process-container {
+        width: calc(100% - 36px);
+    }
+
+
+    .process-header {
+        gap: 28px;
+
+        margin-bottom: 50px;
+    }
+
+
+    .process-kicker {
+        gap: 14px;
+
+        padding-top: 0;
+    }
+
+
+    .process-kicker span {
+        font-size: 9px;
+    }
+
+
+    .process-kicker i {
+        width: 25px;
+    }
+
+
+    .process-heading h2 {
+        font-size: clamp(43px, 12vw, 60px);
+
+        line-height: 0.98;
+    }
+
+
+    .process-heading p {
+        margin-top: 26px;
+
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    .process-path {
+        display: flex;
+
+        flex-direction: column;
+
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+
+    .process-step {
+        min-height: 0;
+
+        padding:
+            30px
+            0
+            34px
+            45px;
+
+        border-right: 0;
+
+        border-bottom:
+            1px solid rgba(255, 255, 255, 0.08);
+    }
+
+
+    .process-step:last-child {
+        border-bottom: 0;
+    }
+
+
+    .process-step-top {
+        margin-bottom: 24px;
+    }
+
+
+    .process-step-number {
+        font-size: 10px;
+    }
+
+
+    .process-step-status {
+        font-size: 7px;
+    }
+
+
+    .process-step-content {
+        max-width: 300px;
+    }
+
+
+    .process-step-label {
+        margin-bottom: 12px;
+
+        font-size: 8px;
+    }
+
+
+    .process-step h3 {
+        font-size: 25px;
+    }
+
+
+    .process-step p {
+        margin-top: 16px;
+
+        font-size: 12px;
+
+        line-height: 1.65;
+    }
+
+
+    .process-node {
+        top: 32px;
+        left: 0;
+
+        width: 14px;
+        height: 14px;
+    }
+
+
+    /*
+     * Вертикальная световая линия
+     */
+
+    .process-path::before {
+        content: "";
+
+        position: absolute;
+
+        top: 38px;
+        bottom: 38px;
+
+        left: 6px;
+
+        width: 1px;
+
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.18),
+                rgba(245, 200, 117, 0.28),
+                rgba(255, 255, 255, 0.08)
+            );
+    }
+
+
+    .process-path::after {
+        content: "";
+
+        position: absolute;
+
+        left: 4px;
+        top: 40px;
+
+        width: 5px;
+        height: 5px;
+
+        border-radius: 50%;
+
+        background: #f5c875;
+
+        box-shadow:
+            0 0 8px #f5c875,
+            0 0 20px rgba(245, 200, 117, 0.5);
+
+        opacity: 0;
+    }
+
+
+    .process-section.is-visible .process-path::after {
+
+        opacity: 1;
+
+        animation:
+            processMobileLight
+            3.8s
+            ease-in-out
+            infinite;
+
+    }
+
+
+    @keyframes processMobileLight {
+
+        0% {
+            top: 40px;
+        }
+
+        45% {
+            top: 50%;
+        }
+
+        100% {
+            top: calc(100% - 43px);
+        }
+
+    }
+
+
+    .process-bottom {
+        grid-template-columns:
+            1fr
+            auto;
+
+        gap: 15px;
+
+        font-size: 8px;
+    }
+
+
+    .process-bottom-line {
+        display: none;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .process-container {
+        width: calc(100% - 28px);
+    }
+
+
+    .process-section {
+        padding-top: 90px;
+    }
+
+
+    .process-heading h2 {
+        font-size: 42px;
+    }
+
+
+    .process-step {
+        padding-left: 40px;
+    }
+
+
+    .process-step h3 {
+        font-size: 23px;
+    }
+
+
+    .process-step p {
+        font-size: 11px;
+    }
+
+}
+
+
+
+
+
+
+/* =========================================================
+   PROCESS — NEW DESKTOP DIRECTION
+   Mobile version stays visually unchanged
+========================================================= */
+
+@media (min-width: 1051px) {
+
+    .process-section {
+        padding: 165px 0 125px;
+
+        background:
+            radial-gradient(
+                circle at 72% 48%,
+                rgba(245, 200, 117, 0.045),
+                transparent 28%
+            ),
+            #080909;
+    }
+
+
+    /* -----------------------------------------
+       HEADER
+    ----------------------------------------- */
+
+    .process-header {
+        grid-template-columns: 180px minmax(0, 1fr);
+
+        gap: 70px;
+
+        margin-bottom: 105px;
+    }
+
+
+    .process-heading h2 {
+        font-size: clamp(58px, 6.4vw, 94px);
+
+        line-height: 0.94;
+
+        letter-spacing: -0.06em;
+    }
+
+
+    .process-heading p {
+        max-width: 520px;
+
+        margin-top: 34px;
+
+        font-size: 15px;
+
+        color: rgba(255, 255, 255, 0.43);
+    }
+
+
+    /* -----------------------------------------
+       PATH
+    ----------------------------------------- */
+
+    .process-path {
+        position: relative;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(5, minmax(0, 1fr));
+
+        min-height: 430px;
+
+        border: 0;
+
+        overflow: visible;
+    }
+
+
+    /* Remove old line completely */
+
+    .process-line {
+        display: none;
+    }
+
+
+    /* -----------------------------------------
+       NEW LIGHT ROUTE
+    ----------------------------------------- */
+
+    .process-path::before {
+        content: "";
+
+        position: absolute;
+
+        z-index: 0;
+
+        left: 2.5%;
+        right: 2.5%;
+
+        top:  165px;
+
+        height: 1px;
+
+        background:
+            linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.07) 4%,
+                rgba(255, 255, 255, 0.16) 25%,
+                rgba(255, 255, 255, 0.16) 75%,
+                rgba(255, 255, 255, 0.07) 96%,
+                transparent 100%
+            );
+
+        transform-origin: left center;
+
+        pointer-events: none;
+    }
+
+
+    /*
+     * Warm route segments
+     */
+
+    .process-path::after {
+        content: "";
+
+        position: absolute;
+
+        z-index: 1;
+
+        left: 3%;
+        right: 3%;
+
+        top: 165px;
+
+        height: 1px;
+
+        background:
+            linear-gradient(
+                90deg,
+                transparent,
+                rgba(245, 200, 117, 0.42),
+                rgba(245, 200, 117, 0.08),
+                transparent
+            );
+
+        opacity: 0;
+
+        pointer-events: none;
+    }
+
+
+    .process-section.is-visible .process-path::after {
+        opacity: 1;
+
+        animation:
+            processDesktopRoute
+            4.8s
+            linear
+            infinite;
+    }
+
+
+    @keyframes processDesktopRoute {
+
+        0% {
+            transform: translateX(-115%);
+        }
+
+        100% {
+            transform: translateX(115%);
+        }
+
+    }
+
+
+    /* -----------------------------------------
+       STEP
+    ----------------------------------------- */
+
+    .process-step {
+        position: relative;
+
+        z-index: 2;
+
+        min-height: 500px;
+
+        padding:
+            0
+            30px
+            40px;
+
+        border: 0;
+
+        background: transparent;
+
+        opacity: 0;
+
+        transform: translateY(28px);
+
+        transition:
+            opacity 0.8s ease,
+            transform 0.9s cubic-bezier(.16, 1, .3, 1);
+    }
+
+
+    .process-section.is-visible .process-step {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+
+    /* -----------------------------------------
+       NUMBER
+    ----------------------------------------- */
+
+    .process-step-number {
+        display: block;
+
+        margin-bottom: 10px;
+
+        font-size: 13px;
+
+        letter-spacing: 0.16em;
+
+        color: rgba(245, 200, 117, 0.72);
+    }
+
+
+    .process-step-status {
+        position: absolute;
+
+        top: 4px;
+        right: 30px;
+
+        font-size: 8px;
+
+        letter-spacing: 0.18em;
+
+        color: rgba(255, 255, 255, 0.18);
+    }
+
+
+    /* -----------------------------------------
+       GIANT GHOST NUMBER
+    ----------------------------------------- */
+
+    .process-step::before {
+        content: attr(class);
+
+        position: absolute;
+
+        z-index: -1;
+
+        top: -24px;
+        left: 12px;
+
+        font-size: 112px;
+
+        font-weight: 600;
+
+        line-height: 1;
+
+        letter-spacing: -0.08em;
+
+        color: rgba(255, 255, 255, 0.025);
+
+        pointer-events: none;
+    }
+
+
+    .process-step-1::before {
+        content: "01";
+    }
+
+    .process-step-2::before {
+        content: "02";
+    }
+
+    .process-step-3::before {
+        content: "03";
+    }
+
+    .process-step-4::before {
+        content: "04";
+    }
+
+    .process-step-5::before {
+        content: "05";
+    }
+
+
+    /* -----------------------------------------
+       NODE
+    ----------------------------------------- */
+
+    .process-node {
+        position: absolute;
+
+        z-index: 5;
+
+        top: 157px;
+        left: 50%;
+
+        width: 17px;
+        height: 17px;
+
+        margin-left: -8px;
+
+        border: 1px solid rgba(255, 255, 255, 0.26);
+
+        border-radius: 50%;
+
+        background: #080909;
+
+        transition:
+            border-color 0.4s ease,
+            box-shadow 0.4s ease,
+            transform 0.5s cubic-bezier(.16, 1, .3, 1);
+    }
+
+
+    .process-node span {
+        width: 4px;
+        height: 4px;
+
+        margin:
+            -2px
+            0
+            0
+            -2px;
+
+        background: rgba(255, 255, 255, 0.28);
+    }
+
+
+    .process-step:hover .process-node,
+    .process-step.active .process-node {
+        border-color: #f5c875;
+
+        transform: scale(1.15);
+
+        box-shadow:
+            0 0 0 6px rgba(245, 200, 117, 0.035),
+            0 0 25px rgba(245, 200, 117, 0.2);
+    }
+
+
+    .process-step:hover .process-node span,
+    .process-step.active .process-node span {
+        background: #f5c875;
+
+        box-shadow:
+            0 0 7px #f5c875,
+            0 0 18px rgba(245, 200, 117, 0.7);
+    }
+
+
+    /* -----------------------------------------
+       CONTENT
+    ----------------------------------------- */
+
+    .process-step-top {
+        display: block;
+
+        margin: 0;
+
+        padding-top: 4px;
+    }
+
+
+    .process-step-content {
+        position: absolute;
+
+        top: 205px;
+        left: 30px;
+        right: 30px;
+
+        max-width: 220px;
+    }
+
+
+    .process-step-label {
+        margin-bottom: 14px;
+
+        font-size: 9px;
+
+        letter-spacing: 0.17em;
+
+        color: rgba(245, 200, 117, 0.48);
+    }
+
+
+    .process-step h3 {
+        font-size: 25px;
+
+        line-height: 1.06;
+
+        letter-spacing: -0.04em;
+    }
+
+
+    .process-step p {
+        margin-top: 18px;
+
+        font-size: 12px;
+
+        line-height: 1.65;
+
+        color: rgba(255, 255, 255, 0.36);
+    }
+
+
+    /* -----------------------------------------
+       VERTICAL MICRO MARKERS
+    ----------------------------------------- */
+
+    .process-step-content::before {
+        content: "";
+
+        position: absolute;
+
+        top: -42px;
+        left: 0;
+
+        width: 1px;
+        height: 25px;
+
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(245, 200, 117, 0),
+                rgba(245, 200, 117, 0.65)
+            );
+    }
+
+
+    /* -----------------------------------------
+       HOVER
+    ----------------------------------------- */
+
+    .process-step:hover {
+        background: transparent;
+    }
+
+
+    .process-step:hover .process-step-label {
+        color: #f5c875;
+    }
+
+
+    .process-step:hover .process-step-content p {
+        color: rgba(255, 255, 255, 0.55);
+    }
+
+
+    /* -----------------------------------------
+       FINAL STEP
+    ----------------------------------------- */
+
+    .process-step-5 .process-node {
+        border-color: rgba(245, 200, 117, 0.45);
+    }
+
+
+    /* -----------------------------------------
+       BOTTOM
+    ----------------------------------------- */
+
+    .process-bottom {
+        position: relative;
+
+        margin-top: 12px;
+
+        padding-top: 26px;
+
+        grid-template-columns:
+            auto
+            minmax(100px, 1fr)
+            auto;
+
+        gap: 24px;
+    }
+
+
+    .process-bottom strong {
+        color: rgba(245, 200, 117, 0.48);
+
+        font-size: 9px;
+
+        letter-spacing: 0.18em;
+    }
+
+}
+
+
+/* =========================================================
+   PROCESS — MOBILE OVERRIDE
+   Keep the already approved mobile composition
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .process-path::before {
+        top: 38px;
+        bottom: 38px;
+
+        left: 6px;
+
+        width: 1px;
+        height: auto;
+
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.18),
+                rgba(245, 200, 117, 0.28),
+                rgba(255, 255, 255, 0.08)
+            );
+    }
+
+
+    .process-path::after {
+        left: 4px;
+        right: auto;
+
+        top: 40px;
+
+        width: 5px;
+        height: 5px;
+
+        background: #f5c875;
+
+        box-shadow:
+            0 0 8px #f5c875,
+            0 0 20px rgba(245, 200, 117, 0.5);
+
+        opacity: 0;
+    }
+
+
+    .process-section.is-visible .process-path::after {
+        animation:
+            processMobileLight
+            3.8s
+            ease-in-out
+            infinite;
+    }
+
+
+    .process-step::before {
+        content: none;
+    }
+
+
+    .process-step-status {
+        position: static;
+
+        font-size: 7px;
+    }
+
+
+    .process-step-content::before {
+        display: none;
+    }
+
+
+    .process-node {
+        margin-left: 0;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.final-cta {
+    position: relative;
+
+    min-height: 760px;
+
+    overflow: hidden;
+
+    background: #080909;
+}
+
+
+/* =========================================================
+   PHOTO MOSAIC
+========================================================= */
+
+.final-cta-media {
+    position: absolute;
+
+    inset: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    gap: 2px;
+
+    transform: scale(1.015);
+
+    transition:
+        transform 1.8s cubic-bezier(.16, 1, .3, 1);
+
+    pointer-events: none;
+}
+
+
+.final-cta-photo {
+    position: relative;
+
+    height: 100%;
+
+    overflow: hidden;
+}
+
+
+.final-cta-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transform: scale(1.035);
+
+    filter:
+        saturate(0.72)
+        contrast(1.08)
+        brightness(0.7);
+
+    transition:
+        transform 2s cubic-bezier(.16, 1, .3, 1),
+        filter 1.2s ease;
+}
+
+
+/* individual framing */
+
+.final-cta-photo-1 img {
+    object-position: center;
+}
+
+.final-cta-photo-2 img {
+    object-position: center;
+}
+
+.final-cta-photo-3 img {
+    object-position: center;
+}
+
+.final-cta-photo-4 img {
+    object-position: center;
+}
+
+.final-cta-photo-5 img {
+    object-position: center;
+}
+
+.final-cta-photo-6 img {
+    object-position: center;
+}
+
+
+/* subtle movement */
+
+.final-cta:hover .final-cta-media {
+    transform: scale(1.025);
+}
+
+
+.final-cta:hover .final-cta-photo img {
+    transform: scale(1.06);
+}
+
+
+/* =========================================================
+   CINEMATIC OVERLAY
+========================================================= */
+
+.final-cta-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(8, 9, 9, 0.97) 0%,
+            rgba(8, 9, 9, 0.86) 26%,
+            rgba(8, 9, 9, 0.53) 57%,
+            rgba(8, 9, 9, 0.76) 100%
+        );
+}
+
+
+.final-cta-vignette {
+    position: absolute;
+
+    z-index: 2;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 48% 48%,
+            transparent 0%,
+            rgba(8, 9, 9, 0.12) 40%,
+            rgba(8, 9, 9, 0.7) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* warm architectural glow */
+
+.final-cta::after {
+    content: "";
+
+    position: absolute;
+
+    z-index: 2;
+
+    left: 34%;
+    top: 30%;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(245, 200, 117, 0.09),
+            transparent 68%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.final-cta-container {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(1400px, calc(100% - 64px));
+
+    min-height: 760px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    padding:
+        55px
+        0
+        30px;
+}
+
+
+/* =========================================================
+   TOP
+========================================================= */
+
+.final-cta-top {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.final-cta-kicker {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+.final-cta-kicker span {
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.16em;
+
+    color: rgba(255, 255, 255, 0.62);
+}
+
+
+.final-cta-kicker i {
+    width: 34px;
+    height: 1px;
+
+    background:
+        rgba(245, 200, 117, 0.75);
+}
+
+
+.final-cta-top-label {
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.2em;
+
+    color: rgba(255, 255, 255, 0.25);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.final-cta-main {
+    display: flex;
+
+    align-items: center;
+}
+
+
+.final-cta-copy {
+    max-width: 850px;
+}
+
+
+.final-cta-copy h2 {
+    margin: 0;
+
+    font-size: clamp(58px, 7vw, 102px);
+
+    line-height: 0.91;
+
+    letter-spacing: -0.065em;
+
+    font-weight: 500;
+
+    text-shadow:
+        0 4px 30px rgba(0, 0, 0, 0.28);
+}
+
+
+.final-cta-copy h2 span {
+    display: block;
+
+    color: rgba(255, 255, 255, 0.42);
+}
+
+
+.final-cta-copy p {
+    max-width: 510px;
+
+    margin: 38px 0 0;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: rgba(255, 255, 255, 0.58);
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.final-cta-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-top: 38px;
+
+    min-height: 58px;
+
+    padding:
+        0
+        10px
+        0
+        25px;
+
+    color: #111;
+
+    background: #f5c875;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+
+.final-cta-button-arrow {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: #111;
+
+    color: #fff;
+
+    font-size: 14px;
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+.final-cta-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 40px rgba(245, 200, 117, 0.18);
+}
+
+
+.final-cta-button:hover
+.final-cta-button-arrow {
+    transform: rotate(45deg);
+}
+
+
+/* =========================================================
+   BOTTOM ROUTE
+========================================================= */
+
+.final-cta-bottom {
+    display: grid;
+
+    grid-template-columns:
+        auto
+        minmax(100px, 1fr)
+        auto;
+
+    align-items: center;
+
+    gap: 24px;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.16em;
+
+    color: rgba(255, 255, 255, 0.36);
+}
+
+
+.final-cta-bottom strong {
+    font-size: 9px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.2em;
+
+    color:
+        rgba(245, 200, 117, 0.62);
+}
+
+
+/* =========================================================
+   LIGHT ROUTE
+========================================================= */
+
+.final-cta-route {
+    position: relative;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.06),
+            rgba(255, 255, 255, 0.22),
+            rgba(255, 255, 255, 0.06)
+        );
+
+    overflow: hidden;
+}
+
+
+.final-cta-route-line {
+    position: absolute;
+
+    left: -20%;
+
+    top: 0;
+
+    width: 20%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #f5c875
+        );
+
+    box-shadow:
+        0 0 12px rgba(245, 200, 117, 0.65);
+}
+
+
+.final-cta-route-light {
+    position: absolute;
+
+    top: 50%;
+
+    left: -2px;
+
+    width: 4px;
+    height: 4px;
+
+    margin-top: -2px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    box-shadow:
+        0 0 8px #fff,
+        0 0 18px #f5c875,
+        0 0 34px rgba(245, 200, 117, 0.7);
+}
+
+
+/* =========================================================
+   CTA REVEAL
+========================================================= */
+
+.final-cta-copy,
+.final-cta-top,
+.final-cta-bottom {
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition:
+        opacity 1s ease,
+        transform 1.1s cubic-bezier(.16, 1, .3, 1);
+}
+
+
+.final-cta.is-visible .final-cta-top {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+.final-cta.is-visible .final-cta-copy {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    transition-delay: 0.12s;
+}
+
+
+.final-cta.is-visible .final-cta-bottom {
+    opacity: 1;
+
+    transform: translateY(0);
+
+    transition-delay: 0.28s;
+}
+
+
+.final-cta.is-visible .final-cta-route-line {
+    animation:
+        finalCtaRoute
+        4s
+        linear
+        infinite;
+}
+
+
+.final-cta.is-visible .final-cta-route-light {
+    animation:
+        finalCtaLight
+        4s
+        linear
+        infinite;
+}
+
+
+@keyframes finalCtaRoute {
+
+    0% {
+        left: -20%;
+    }
+
+    100% {
+        left: 120%;
+    }
+
+}
+
+
+@keyframes finalCtaLight {
+
+    0% {
+        left: 0;
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    92% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .final-cta {
+        min-height: 700px;
+    }
+
+
+    .final-cta-container {
+        min-height: 700px;
+
+        padding-top: 42px;
+    }
+
+
+    .final-cta-copy h2 {
+        font-size: clamp(52px, 8vw, 76px);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .final-cta {
+        min-height: 680px;
+    }
+
+
+    .final-cta-media {
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        grid-template-rows:
+            repeat(2, 1fr);
+
+        gap: 1px;
+
+        transform: scale(1.02);
+    }
+
+
+    .final-cta-photo img {
+        transform: scale(1.08);
+
+        filter:
+            saturate(0.62)
+            contrast(1.06)
+            brightness(0.58);
+    }
+
+
+    .final-cta:hover .final-cta-media {
+        transform: scale(1.02);
+    }
+
+
+    .final-cta:hover .final-cta-photo img {
+        transform: scale(1.08);
+    }
+
+
+    .final-cta-overlay {
+        background:
+            linear-gradient(
+                180deg,
+                rgba(8, 9, 9, 0.9) 0%,
+                rgba(8, 9, 9, 0.68) 38%,
+                rgba(8, 9, 9, 0.88) 100%
+            );
+    }
+
+
+    .final-cta-vignette {
+        background:
+            radial-gradient(
+                circle at 50% 45%,
+                transparent 0%,
+                rgba(8, 9, 9, 0.72) 100%
+            );
+    }
+
+
+    .final-cta-container {
+        width: calc(100% - 36px);
+
+        min-height: 680px;
+
+        padding:
+            30px
+            0
+            22px;
+    }
+
+
+    .final-cta-top {
+        align-items: flex-start;
+    }
+
+
+    .final-cta-kicker {
+        gap: 13px;
+    }
+
+
+    .final-cta-kicker span {
+        font-size: 9px;
+    }
+
+
+    .final-cta-kicker i {
+        width: 25px;
+    }
+
+
+    .final-cta-top-label {
+        display: none;
+    }
+
+
+    .final-cta-main {
+        align-items: center;
+    }
+
+
+    .final-cta-copy {
+        max-width: 100%;
+    }
+
+
+    .final-cta-copy h2 {
+        font-size: clamp(43px, 12vw, 60px);
+
+        line-height: 0.96;
+
+        letter-spacing: -0.06em;
+    }
+
+
+    .final-cta-copy p {
+        max-width: 330px;
+
+        margin-top: 25px;
+
+        font-size: 13px;
+
+        line-height: 1.65;
+
+        color: rgba(255, 255, 255, 0.56);
+    }
+
+
+    .final-cta-button {
+        margin-top: 28px;
+
+        min-height: 54px;
+
+        padding-left: 21px;
+
+        gap: 15px;
+
+        font-size: 10px;
+    }
+
+
+    .final-cta-button-arrow {
+        width: 36px;
+        height: 36px;
+
+        font-size: 0;
+    }
+
+
+    .final-cta-button-arrow::after {
+        content: "";
+
+        display: inline-block;
+
+        width: 16px;
+        height: 16px;
+
+        background-image:
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 19L19 5M9 5h10v10' fill='none' stroke='%23ffffff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+
+
+    .final-cta-bottom {
+        grid-template-columns:
+            1fr
+            auto;
+
+        gap: 15px;
+
+        font-size: 7px;
+    }
+
+
+    .final-cta-route {
+        display: none;
+    }
+
+
+    .final-cta-bottom strong {
+        font-size: 8px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .final-cta {
+        min-height: 650px;
+    }
+
+
+    .final-cta-container {
+        width: calc(100% - 28px);
+
+        min-height: 650px;
+    }
+
+
+    .final-cta-copy h2 {
+        font-size: 42px;
+    }
+
+
+    .final-cta-copy p {
+        font-size: 12px;
+    }
+
+
+    .final-cta-button {
+        width: 100%;
+
+        justify-content: space-between;
+    }
+
+}

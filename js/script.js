@@ -2288,3 +2288,161 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const processSection =
+        document.getElementById("process");
+
+    if (!processSection) return;
+
+
+    /*
+     * Reveal
+     */
+
+    if ("IntersectionObserver" in window) {
+
+        const processObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            processSection.classList.add(
+                                "is-visible"
+                            );
+
+                            processObserver.unobserve(
+                                processSection
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.14
+                }
+            );
+
+
+        processObserver.observe(processSection);
+
+    } else {
+
+        processSection.classList.add(
+            "is-visible"
+        );
+
+    }
+
+
+    /*
+     * Interactive steps
+     */
+
+    const processSteps =
+        processSection.querySelectorAll(
+            ".process-step"
+        );
+
+
+    processSteps.forEach(step => {
+
+        step.addEventListener("mouseenter", () => {
+
+            if (
+                window.matchMedia(
+                    "(hover: hover) and (pointer: fine)"
+                ).matches
+            ) {
+
+                processSteps.forEach(item => {
+                    item.classList.remove("active");
+                });
+
+                step.classList.add("active");
+
+            }
+
+        });
+
+    });
+
+});
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const finalCta =
+        document.getElementById("about");
+
+    if (!finalCta) return;
+
+
+    /*
+     * Reveal
+     */
+
+    if ("IntersectionObserver" in window) {
+
+        const finalCtaObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            finalCta.classList.add(
+                                "is-visible"
+                            );
+
+                            finalCtaObserver.unobserve(
+                                finalCta
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.15
+                }
+            );
+
+
+        finalCtaObserver.observe(finalCta);
+
+    } else {
+
+        finalCta.classList.add("is-visible");
+
+    }
+
+});
