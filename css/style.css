@@ -5643,22 +5643,17 @@ button {
         width: 18px;
         height: 18px;
 
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 19L19 5M9 5h10v10' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 19L19 5M9 5h10v10' fill='none' stroke='%23f5c875' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
     }
 
-}
 
-
-
-/* =========================================================
-   ADVANTAGES CTA — MOBILE ARROW
-========================================================= */
-
-@media (max-width: 800px) {
+    /* =====================================================
+       CTA — WHITE ARROW
+    ===================================================== */
 
     .advantages-cta-button > span:last-child {
         font-size: 0;
@@ -5672,7 +5667,7 @@ button {
         width: 17px;
         height: 17px;
 
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 19L19 5M9 5h10v10' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 19L19 5M9 5h10v10' fill='none' stroke='%23ffffff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 
         background-repeat: no-repeat;
         background-size: contain;
