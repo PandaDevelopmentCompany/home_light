@@ -1537,6 +1537,121 @@ document.addEventListener("DOMContentLoaded", () => {
             "lightboxNext"
         );
 
+        const lightboxThumbnails =
+    document.getElementById(
+        "lightboxThumbnails"
+    );
+
+
+
+
+    /* =====================================================
+       RENDER LIGHTBOX THUMBNAILS
+    ===================================================== */
+
+    function renderLightboxThumbnails(project) {
+
+        if (!lightboxThumbnails) return;
+
+        lightboxThumbnails.innerHTML = "";
+
+
+        project.images.forEach(
+            (image, index) => {
+
+                const button =
+                    document.createElement("button");
+
+                button.type = "button";
+
+                button.className =
+                    "lightbox-thumbnail";
+
+
+                if (
+                    index === currentImageIndex
+                ) {
+
+                    button.classList.add(
+                        "active"
+                    );
+
+                }
+
+
+                button.setAttribute(
+                    "aria-label",
+                    `Открыть фотографию ${index + 1}`
+                );
+
+
+                const img =
+                    document.createElement("img");
+
+                img.src =
+                    image;
+
+                img.alt =
+                    `${project.title} — фото ${index + 1}`;
+
+                img.loading =
+                    index === currentImageIndex
+                        ? "eager"
+                        : "lazy";
+
+                img.decoding =
+                    "async";
+
+
+                button.appendChild(img);
+
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        currentImageIndex =
+                            index;
+
+                        updateLightbox();
+
+                        updateProjectImage(
+                            false
+                        );
+
+                    }
+                );
+
+
+                lightboxThumbnails.appendChild(
+                    button
+                );
+
+            }
+        );
+
+
+    /* =================================================
+       ПОКАЗЫВАЕМ АКТИВНУЮ МИНИАТЮРУ
+    ================================================= */
+
+    const activeThumbnail =
+        lightboxThumbnails.querySelector(
+            ".lightbox-thumbnail.active"
+        );
+
+
+    if (activeThumbnail) {
+
+        activeThumbnail.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center"
+        });
+
+    }
+
+}
 
 
     /* =====================================================
@@ -1563,10 +1678,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         lightboxCurrent.textContent =
-            padNumber(currentImageIndex + 1);
+            padNumber(
+                currentImageIndex + 1
+            );
 
         lightboxTotal.textContent =
-            padNumber(project.images.length);
+            padNumber(
+                project.images.length
+            );
 
 
         lightboxProjectName.textContent =
@@ -1574,6 +1693,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         lightboxProjectYear.textContent =
             project.year;
+
+
+        /* ================================================
+           LIGHTBOX THUMBNAILS
+        ================================================ */
+
+        renderLightboxThumbnails(
+            project
+        );
 
     }
 
