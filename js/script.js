@@ -623,7 +623,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
 
-                /* ------------------------------------------------
+               /* ------------------------------------------------
                    BUTTON
                 ------------------------------------------------ */
 
@@ -634,9 +634,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 submitButton.disabled = true;
 
-                submitButton.innerHTML =
-                    "<span>Отправляем...</span>";
+                const submitText =
+                    submitButton.querySelector(
+                        "span:first-child"
+                    );
 
+                if (submitText) {
+                    submitText.textContent =
+                        "Отправляем...";
+                }
 
                 /* ------------------------------------------------
                    PAYLOAD
@@ -762,10 +768,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     submitButton.disabled = false;
 
-                    submitButton.innerHTML = `
-                        <span>Перезвоните мне</span>
-                        <span>↗</span>
-                    `;
+                    const submitText =
+                        submitButton.querySelector(
+                            "span:first-child"
+                        );
+
+                    if (submitText) {
+                        submitText.textContent =
+                            "Перезвоните мне";
+                    }
 
                 }
 
