@@ -1990,7 +1990,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-        
+
 
     /* =====================================================
        PRELOAD NEXT IMAGE
@@ -2051,3 +2051,240 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+
+
+
+/* =========================================================
+   SOLUTIONS
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const solutionsSection =
+        document.getElementById("solutions");
+
+    if (!solutionsSection) return;
+
+
+    const solutionsImage =
+        document.getElementById("solutionsImage");
+
+    const solutionsCurrent =
+        document.getElementById("solutionsCurrent");
+
+    const solutionsCaption =
+        document.getElementById("solutionsCaption");
+
+    const solutionItems =
+        document.querySelectorAll(".solution-item");
+
+
+    const solutions = [
+
+        {
+            image: "img/work/bah_s.jpg",
+            title: "Бахрома"
+        },
+
+        {
+            image: "img/work/n_s.jpg",
+            title: "Гибкий неон"
+        },
+
+        {
+            image: "img/work/zan_s.jpg",
+            title: "Занавес"
+        },
+
+        {
+            image: "img/work/fig_s.jpg",
+            title: "Световые фигуры"
+        },
+
+        {
+            image: "img/work/nit_s.jpg",
+            title: "Нить"
+        },
+
+        {
+            image: "img/work/bel_s.jpg",
+            title: "Бэлт-лайт"
+        }
+
+    ];
+
+
+    let currentIndex = 0;
+    let changeTimer = null;
+
+
+    function changeSolution(index) {
+
+        if (
+            index === currentIndex &&
+            !solutionsImage.classList.contains("is-changing")
+        ) {
+            return;
+        }
+
+
+        const solution = solutions[index];
+
+        if (!solution) return;
+
+
+        currentIndex = index;
+
+
+        solutionItems.forEach((item, itemIndex) => {
+
+            item.classList.toggle(
+                "active",
+                itemIndex === index
+            );
+
+        });
+
+
+        solutionsImage.classList.add("is-changing");
+
+
+        clearTimeout(changeTimer);
+
+
+        changeTimer = setTimeout(() => {
+
+            solutionsImage.src = solution.image;
+            solutionsImage.alt = solution.title;
+
+            solutionsCurrent.textContent =
+                String(index + 1).padStart(2, "0");
+
+            solutionsCaption.textContent =
+                solution.title;
+
+
+            solutionsImage.onload = () => {
+
+                requestAnimationFrame(() => {
+
+                    solutionsImage.classList.remove(
+                        "is-changing"
+                    );
+
+                });
+
+            };
+
+
+            /*
+             * На случай, если изображение уже
+             * находится в браузерном кеше.
+             */
+
+            if (solutionsImage.complete) {
+
+                requestAnimationFrame(() => {
+
+                    solutionsImage.classList.remove(
+                        "is-changing"
+                    );
+
+                });
+
+            }
+
+        }, 220);
+
+    }
+
+
+    solutionItems.forEach((item, index) => {
+
+        item.addEventListener("mouseenter", () => {
+
+            /*
+             * Hover работает только там,
+             * где действительно есть мышь.
+             */
+
+            if (
+                window.matchMedia(
+                    "(hover: hover) and (pointer: fine)"
+                ).matches
+            ) {
+                changeSolution(index);
+            }
+
+        });
+
+
+        item.addEventListener("click", () => {
+
+            changeSolution(index);
+
+        });
+
+    });
+
+
+    /*
+     * Предзагрузка изображений.
+     */
+
+    solutions.forEach(solution => {
+
+        const image = new Image();
+
+        image.src = solution.image;
+
+    });
+
+
+    /*
+     * Reveal при появлении блока.
+     */
+
+    if ("IntersectionObserver" in window) {
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            solutionsSection.classList.add(
+                                "is-visible"
+                            );
+
+                            observer.unobserve(
+                                solutionsSection
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        observer.observe(solutionsSection);
+
+    } else {
+
+        solutionsSection.classList.add(
+            "is-visible"
+        );
+
+    }
+
+
+});
