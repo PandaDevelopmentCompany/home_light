@@ -1550,17 +1550,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         lightbox.addEventListener("pointerdown", event => {
 
-            // Закрываем только при нажатии на фон
-            if (
-                event.target === lightbox ||
-                event.target === lightboxBackdrop
-            ) {
+    const clickedInsideWindow =
+        event.target.closest(".project-lightbox-window");
 
-                closeLightbox();
+    if (!clickedInsideWindow) {
+        closeLightbox();
+    }
 
-            }
-
-        });
+});
 
 
 
@@ -1882,7 +1879,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 
-        /* =====================================================
+       /* =====================================================
            TOUCH GESTURES
         ===================================================== */
 
@@ -1892,13 +1889,19 @@ document.addEventListener("DOMContentLoaded", () => {
         const SWIPE_IMAGE_DISTANCE = 50;
         const SWIPE_CLOSE_DISTANCE = 100;
 
-        if (lightbox) {
+        const lightboxImageWrap =
+            document.querySelector(".lightbox-image-wrap");
 
-            lightbox.addEventListener(
+        if (lightboxImageWrap) {
+
+            lightboxImageWrap.addEventListener(
                 "touchstart",
                 event => {
 
-                    if (!event.touches || event.touches.length !== 1) {
+                    if (
+                        !event.touches ||
+                        event.touches.length !== 1
+                    ) {
                         return;
                     }
 
@@ -1916,7 +1919,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
 
-            lightbox.addEventListener(
+            lightboxImageWrap.addEventListener(
                 "touchend",
                 event => {
 
@@ -1927,28 +1930,27 @@ document.addEventListener("DOMContentLoaded", () => {
                         return;
                     }
 
-
                     const touch =
                         event.changedTouches[0];
-
 
                     const deltaX =
                         touch.clientX -
                         touchStartX;
-
 
                     const deltaY =
                         touch.clientY -
                         touchStartY;
 
 
-                    /* ================================================
-                       СВАЙП ВНИЗ — ЗАКРЫТЬ
-                    ================================================ */
+                    /* ============================================
+                       СВАЙП ВВЕРХ / ВНИЗ — ЗАКРЫТЬ
+                    ============================================ */
 
                     if (
-                        deltaY > SWIPE_CLOSE_DISTANCE &&
-                        Math.abs(deltaY) > Math.abs(deltaX)
+                        Math.abs(deltaY) >
+                        SWIPE_CLOSE_DISTANCE &&
+                        Math.abs(deltaY) >
+                        Math.abs(deltaX)
                     ) {
 
                         closeLightbox();
@@ -1958,34 +1960,37 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
 
-            /* ================================================
-               СВАЙП ВЛЕВО / ВПРАВО — СМЕНА ФОТО
-            ================================================ */
+                    /* ============================================
+                       СВАЙП ВЛЕВО / ВПРАВО — СМЕНА ФОТО
+                    ============================================ */
 
-            if (
-                Math.abs(deltaX) < SWIPE_IMAGE_DISTANCE ||
-                Math.abs(deltaX) < Math.abs(deltaY)
-            ) {
-                return;
-            }
+                    if (
+                        Math.abs(deltaX) <
+                        SWIPE_IMAGE_DISTANCE ||
+                        Math.abs(deltaX) <
+                        Math.abs(deltaY)
+                    ) {
+                        return;
+                    }
 
 
-            if (deltaX < 0) {
+                    if (deltaX < 0) {
 
-                lightboxNextImage();
+                        lightboxNextImage();
 
-            } else {
+                    } else {
 
-                lightboxPreviousImage();
+                        lightboxPreviousImage();
 
-            }
+                    }
 
-        },
-        { passive: true }
-    );
+                },
+                { passive: true }
+            );
 
-}
+        }
 
+        
 
     /* =====================================================
        PRELOAD NEXT IMAGE
