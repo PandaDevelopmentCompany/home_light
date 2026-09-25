@@ -3960,3 +3960,881 @@ button {
 
     object-fit: cover;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   ADVANTAGES
+========================================================= */
+
+.advantages-section {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 150px 0 120px;
+
+    background:
+        radial-gradient(
+            circle at 18% 35%,
+            rgba(245, 200, 117, 0.045),
+            transparent 28%
+        ),
+        #080909;
+
+    color: #fff;
+}
+
+
+/* TOP LINE */
+
+.advantages-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.12),
+            transparent
+        );
+}
+
+
+.advantages-container {
+
+    width:
+        min(1400px, calc(100% - 64px));
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.advantages-header {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 80px;
+
+    margin-bottom: 70px;
+}
+
+
+.advantages-kicker {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 24px;
+
+    color:
+        rgba(255,255,255,.42);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: .20em;
+}
+
+
+.advantages-kicker-line {
+
+    width: 35px;
+
+    height: 1px;
+
+    background: #f5c875;
+
+    box-shadow:
+        0 0 8px
+        rgba(245,200,117,.75);
+}
+
+
+.advantages-title {
+
+    max-width: 850px;
+
+    margin: 0;
+
+    font-size:
+        clamp(52px, 6.5vw, 94px);
+
+    line-height: .92;
+
+    font-weight: 500;
+
+    letter-spacing: -.065em;
+}
+
+
+.advantages-title span {
+
+    display: block;
+
+    color:
+        rgba(255,255,255,.38);
+}
+
+
+.advantages-intro {
+
+    width: min(360px, 100%);
+
+    padding-bottom: 5px;
+
+    color:
+        rgba(255,255,255,.48);
+
+    font-size: 13px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.advantages-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 1px;
+
+    background:
+        rgba(255,255,255,.09);
+
+    border:
+        1px solid rgba(255,255,255,.09);
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.advantage-card {
+
+    position: relative;
+
+    min-height: 330px;
+
+    padding: 38px;
+
+    overflow: hidden;
+
+    background:
+        rgba(10,11,11,.94);
+
+    transition:
+        background .45s ease,
+        transform .45s ease;
+}
+
+
+.advantage-card-large {
+
+    min-height: 390px;
+}
+
+
+.advantage-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 0;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f5c875,
+            rgba(245,200,117,0)
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(245,200,117,.45);
+
+    transition:
+        width .55s cubic-bezier(.2,.7,.2,1);
+}
+
+
+.advantage-card:hover {
+
+    background:
+        radial-gradient(
+            circle at 80% 15%,
+            rgba(245,200,117,.07),
+            transparent 35%
+        ),
+        #0b0c0c;
+}
+
+
+.advantage-card:hover::before {
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.advantage-number {
+
+    position: absolute;
+
+    top: 25px;
+    right: 30px;
+
+    color:
+        rgba(255,255,255,.045);
+
+    font-size: 76px;
+
+    line-height: 1;
+
+    font-weight: 500;
+
+    letter-spacing: -.07em;
+
+    transition:
+        color .4s ease,
+        transform .5s ease;
+}
+
+
+.advantage-card:hover
+.advantage-number {
+
+    color:
+        rgba(245,200,117,.08);
+
+    transform:
+        translateY(-4px);
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.advantage-icon {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 85px;
+
+    border:
+        1px solid rgba(255,255,255,.13);
+
+    border-radius: 50%;
+
+    color:
+        #f5c875;
+
+    font-size: 17px;
+
+    font-weight: 400;
+
+    transition:
+        border-color .4s ease,
+        box-shadow .4s ease,
+        transform .4s ease;
+}
+
+
+.advantage-card:hover
+.advantage-icon {
+
+    border-color:
+        rgba(245,200,117,.55);
+
+    box-shadow:
+        0 0 20px
+        rgba(245,200,117,.10);
+
+    transform:
+        rotate(8deg);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.advantage-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.advantage-label {
+
+    margin-bottom: 15px;
+
+    color:
+        rgba(255,255,255,.34);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: .20em;
+}
+
+
+.advantage-content h3 {
+
+    max-width: 470px;
+
+    margin: 0;
+
+    font-size:
+        clamp(28px, 3vw, 42px);
+
+    line-height: .98;
+
+    font-weight: 500;
+
+    letter-spacing: -.045em;
+}
+
+
+.advantage-content h3 span {
+
+    display: block;
+
+    color:
+        rgba(255,255,255,.35);
+}
+
+
+.advantage-content p {
+
+    max-width: 420px;
+
+    margin-top: 22px;
+
+    color:
+        rgba(255,255,255,.45);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ENERGY
+========================================================= */
+
+.advantage-card-energy {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+
+.advantage-energy {
+
+    position: absolute;
+
+    top: 28px;
+    left: 38px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 8px;
+
+    color: #f5c875;
+}
+
+
+.advantage-energy strong {
+
+    font-size: 72px;
+
+    line-height: .8;
+
+    font-weight: 500;
+
+    letter-spacing: -.08em;
+
+    text-shadow:
+        0 0 30px
+        rgba(245,200,117,.18);
+}
+
+
+.advantage-energy span {
+
+    padding-bottom: 4px;
+
+    color:
+        rgba(255,255,255,.35);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: .12em;
+}
+
+
+.advantage-card-energy
+.advantage-content {
+
+    margin-top: auto;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.advantages-cta {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        80px 1fr auto;
+
+    align-items: center;
+
+    gap: 45px;
+
+    margin-top: 1px;
+
+    padding: 42px 38px;
+
+    background:
+        linear-gradient(
+            110deg,
+            rgba(245,200,117,.10),
+            rgba(245,200,117,.025) 45%,
+            rgba(255,255,255,.025)
+        );
+
+    border:
+        1px solid
+        rgba(245,200,117,.16);
+}
+
+
+.advantages-cta-number {
+
+    color:
+        rgba(245,200,117,.65);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: .12em;
+}
+
+
+.advantages-cta-label {
+
+    margin-bottom: 12px;
+
+    color:
+        rgba(255,255,255,.30);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: .20em;
+}
+
+
+.advantages-cta-content h3 {
+
+    margin: 0;
+
+    font-size:
+        clamp(25px, 3vw, 40px);
+
+    line-height: 1;
+
+    font-weight: 500;
+
+    letter-spacing: -.045em;
+}
+
+
+.advantages-cta-content h3 span {
+
+    color:
+        rgba(255,255,255,.42);
+}
+
+
+.advantages-cta-content p {
+
+    max-width: 600px;
+
+    margin-top: 14px;
+
+    color:
+        rgba(255,255,255,.40);
+
+    font-size: 11px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   CTA BUTTON
+========================================================= */
+
+.advantages-cta-button {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    min-width: 205px;
+
+    padding:
+        6px 7px 6px 20px;
+
+    color: #111;
+
+    background: #f5f1e9;
+
+    border-radius: 100px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: .03em;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+
+.advantages-cta-button span:last-child {
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    margin-left: auto;
+
+    border-radius: 50%;
+
+    background: #111;
+
+    color: #fff;
+
+    font-size: 15px;
+}
+
+
+.advantages-cta-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 35px
+        rgba(245,200,117,.12);
+}
+
+
+/* =========================================================
+   ADVANTAGES — TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .advantages-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 25px;
+    }
+
+
+    .advantages-intro {
+
+        width: min(520px, 100%);
+    }
+
+
+    .advantages-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .advantage-card,
+    .advantage-card-large {
+
+        min-height: 330px;
+    }
+
+
+    .advantages-cta {
+
+        grid-template-columns:
+            55px 1fr;
+
+        gap: 25px;
+    }
+
+
+    .advantages-cta-button {
+
+        grid-column: 2;
+
+        width: max-content;
+    }
+
+}
+
+
+/* =========================================================
+   ADVANTAGES — MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .advantages-section {
+
+        padding:
+            100px 0 55px;
+    }
+
+
+    .advantages-container {
+
+        width:
+            calc(100% - 36px);
+    }
+
+
+    .advantages-header {
+
+        margin-bottom: 42px;
+    }
+
+
+    .advantages-kicker {
+
+        margin-bottom: 20px;
+
+        font-size: 8px;
+    }
+
+
+    .advantages-title {
+
+        font-size:
+            clamp(43px, 13vw, 67px);
+    }
+
+
+    .advantages-intro {
+
+        max-width: 300px;
+
+        font-size: 11px;
+    }
+
+
+    .advantage-card,
+    .advantage-card-large {
+
+        min-height: 330px;
+
+        padding: 28px 24px;
+    }
+
+
+    .advantage-number {
+
+        top: 20px;
+        right: 20px;
+
+        font-size: 62px;
+    }
+
+
+    .advantage-icon {
+
+        margin-bottom: 70px;
+    }
+
+
+    .advantage-content h3 {
+
+        font-size: 31px;
+    }
+
+
+    .advantage-content p {
+
+        max-width: 310px;
+
+        margin-top: 18px;
+
+        font-size: 10px;
+    }
+
+
+    .advantage-energy {
+
+        top: 25px;
+        left: 24px;
+    }
+
+
+    .advantage-energy strong {
+
+        font-size: 62px;
+    }
+
+
+    .advantages-cta {
+
+        display: block;
+
+        padding: 30px 24px;
+    }
+
+
+    .advantages-cta-number {
+
+        margin-bottom: 40px;
+    }
+
+
+    .advantages-cta-content h3 {
+
+        font-size: 29px;
+    }
+
+
+    .advantages-cta-content p {
+
+        font-size: 10px;
+    }
+
+
+    .advantages-cta-button {
+
+        width: 100%;
+
+        margin-top: 28px;
+
+        justify-content: space-between;
+    }
+
+}
+
+
+/* =========================================================
+   ADVANTAGES — VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .advantages-container {
+
+        width:
+            calc(100% - 28px);
+    }
+
+
+    .advantage-card,
+    .advantage-card-large {
+
+        min-height: 310px;
+    }
+
+
+    .advantage-content h3 {
+
+        font-size: 29px;
+    }
+
+}
