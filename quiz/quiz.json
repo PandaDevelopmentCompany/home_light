@@ -20,25 +20,25 @@
           "id": "fringe",
           "title": "Бахрома",
           "description": "Мягкий свет по контуру крыши",
-          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+          "image": "./img/work/b_4.jpg"
         },
         {
           "id": "neon",
           "title": "Неон",
           "description": "Чёткие архитектурные линии",
-          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+          "image": "./img/work/n_1.jpg"
         },
         {
           "id": "fringe-neon",
           "title": "Бахрома + Неон",
           "description": "Объёмный свет и выразительная архитектура",
-          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+          "image": "./img/work/work_21.jpg"
         },
         {
           "id": "unknown",
           "title": "Не знаю",
           "description": "Помогите подобрать решение",
-          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+          "image": "./img/work/plug.png"
         }
       ]
     },
@@ -54,37 +54,37 @@
           "id": "cold-fringe-neon",
           "title": "Холодный",
           "description": "Бахрома + неон",
-          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+          "image": "./img/work/n_6.jpg"
         },
         {
           "id": "warm-fringe-neon",
           "title": "Тёплый",
           "description": "Бахрома + неон",
-          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+          "image": "./img/work/n_3.jpg"
         },
         {
           "id": "cold-fringe",
           "title": "Холодный",
           "description": "Только бахрома",
-          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+          "image": "./img/work/b_8.jpg"
         },
         {
           "id": "warm-fringe",
           "title": "Тёплый",
           "description": "Только бахрома",
-          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+          "image": "./img/work/b_2.jpg"
         },
         {
           "id": "cold-neon",
           "title": "Холодный",
           "description": "Только неон",
-          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+          "image": "./img/work/ao_2.jpg"
         },
         {
           "id": "warm-neon",
           "title": "Тёплый",
           "description": "Только неон",
-          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+          "image": "./img/work/work_2.jpg"
         }
       ]
     },
@@ -100,13 +100,13 @@
           "id": "yes",
           "title": "Да, нужна",
           "description": "Дом + участок как единая композиция",
-          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+          "image": "./img/work/fig_s.jpg"
         },
         {
           "id": "no",
           "title": "Нет, не нужна",
           "description": "Сфокусируемся на доме",
-          "image": "https://pandadevelopmentcompany.github.io/home_light/img/header_1.jpg"
+          "image": "./img/work/plug.png"
         }
       ]
     },
