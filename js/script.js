@@ -661,8 +661,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     personalConsent,
 
-                    marketingConsent: false,
-
                     source:
                         window.location.href
 
